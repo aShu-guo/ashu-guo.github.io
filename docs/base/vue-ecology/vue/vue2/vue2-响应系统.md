@@ -67,9 +67,9 @@
 let childOb = observe(val)
 ```
 
-![observe影响-1.png](../../../../图片/observe影响-1.png)
+![observe影响-1.png](/imgs/observe影响-1.png)
 
-![observe影响-2.png](../../../../图片/observe影响-2.png)
+![observe影响-2.png](/imgs/observe影响-2.png)
 
 - observe() `递归属性，添加数据拦截`
 - dep.depend() `依赖收集：在dep中保存当前watcher、在watcher中保存dep`

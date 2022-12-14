@@ -1,0 +1,1 @@
+const a=JSON.parse('{"key":"v-df8b4408","path":"/base/%E5%8F%AF%E8%A7%86%E5%8C%96/canvas-1.html","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"filePathRelative":"base/可视化/canvas-1.md","git":{"createdTime":1670840685000,"updatedTime":1670840685000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":1}]}}');export{a as data};

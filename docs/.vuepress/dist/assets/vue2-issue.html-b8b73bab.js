@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-6a0b71c8","path":"/base/vue-ecology/vue/vue2/vue2-issue.html","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"filePathRelative":"base/vue-ecology/vue/vue2/vue2-issue.md","git":{"createdTime":1670840685000,"updatedTime":1670840685000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":1}]}}');export{e as data};
