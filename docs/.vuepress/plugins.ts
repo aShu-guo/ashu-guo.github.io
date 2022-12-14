@@ -20,8 +20,8 @@ export default {
     plugins: [
         googleAnalyticsPlugin({id: '4349098458'}),
         backToTopPlugin(),
-        mediumZoomPlugin(),
-        gitPlugin(),
+        // mediumZoomPlugin(),
+        // gitPlugin(),
         tocPlugin(),
         // docsearchPlugin({}),
         // searchPlugin({}),

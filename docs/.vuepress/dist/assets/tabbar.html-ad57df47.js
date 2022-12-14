@@ -1,1 +1,0 @@
-const a=JSON.parse('{"key":"v-28b284f7","path":"/base/hybrid-app/uniapp/tabbar.html","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"filePathRelative":"base/hybrid-app/uniapp/tabbar.md","git":{"createdTime":1670840685000,"updatedTime":1670840685000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":1}]}}');export{a as data};

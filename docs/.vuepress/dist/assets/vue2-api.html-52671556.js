@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-5791c57b","path":"/base/vue-ecology/vue/vue2/vue2-api.html","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"filePathRelative":"base/vue-ecology/vue/vue2/vue2-api.md","git":{"createdTime":1670840685000,"updatedTime":1670840685000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":1}]}}');export{e as data};

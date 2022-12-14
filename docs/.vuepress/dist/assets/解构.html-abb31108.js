@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-40f5236a","path":"/base/es6-above/%E8%A7%A3%E6%9E%84.html","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"filePathRelative":"base/es6-above/解构.md","git":{"createdTime":1670840685000,"updatedTime":1670840685000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":1}]}}');export{e as data};

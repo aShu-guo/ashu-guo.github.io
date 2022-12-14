@@ -1,1 +1,0 @@
-import{_ as l,p as o,q as t,R as e}from"./framework-1443a5b1.js";const _={},c=e("blockquote",null,[e("p",null,"hello")],-1),n=e("p",null,"123123",-1),s=[c,n];function r(a,h){return o(),t("div",null,s)}const d=l(_,[["render",r],["__file","hello.html.vue"]]);export{d as default};

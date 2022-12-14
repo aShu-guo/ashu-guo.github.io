@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-6da3f053","path":"/base/es6-above/es6%E7%96%91%E9%9A%BE%E7%82%B9.html","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"filePathRelative":"base/es6-above/es6疑难点.md","git":{"createdTime":1670840685000,"updatedTime":1670840685000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":1}]}}');export{e as data};

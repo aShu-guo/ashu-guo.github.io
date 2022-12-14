@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-70b2b25b","path":"/base/vue-ecology/vue/MVVM.html","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"filePathRelative":"base/vue-ecology/vue/MVVM.md","git":{"createdTime":1670840685000,"updatedTime":1671007802000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":2}]}}');export{e as data};

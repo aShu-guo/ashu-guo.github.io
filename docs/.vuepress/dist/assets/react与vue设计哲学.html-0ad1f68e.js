@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-0cbe115b","path":"/base/react%E4%B8%8Evue%E8%AE%BE%E8%AE%A1%E5%93%B2%E5%AD%A6.html","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"filePathRelative":"base/react与vue设计哲学.md","git":{"createdTime":1670840685000,"updatedTime":1670840685000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":1}]}}');export{e as data};

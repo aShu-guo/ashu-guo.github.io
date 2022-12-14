@@ -1,1 +1,0 @@
-import{_ as t,p as _,q as o,R as e}from"./framework-1443a5b1.js";const c={},n=e("blockquote",null,[e("p",null,"渲染")],-1),s=[n];function l(r,a){return _(),o("div",null,s)}const d=t(c,[["render",l],["__file","渲染.html.vue"]]);export{d as default};
