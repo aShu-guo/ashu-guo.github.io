@@ -12,8 +12,6 @@ model层知道数据的来源，数据的访问层；
 controller提供逻辑，控制数据的流向，
 ```
 
-![MVVMPattern](/Users/ifugle/Downloads/MVVMPattern.png)
-
 优点：
 
 1.更像是设计师与开发之间的桥梁
