@@ -12,7 +12,7 @@ const navbar: false | NavbarConfig = [
         text: 'Vue',
         link: '/vue/',
         children: [
-            {text: 'rfc', link: '/vue/rfc/'}
+            {text: 'RFC', link: '/vue/rfc/'},
         ]
     }
 ]
