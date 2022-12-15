@@ -1,16 +1,28 @@
 import {SidebarConfig} from "vuepress";
 
 const sidebar: false | "auto" | SidebarConfig = {
-    '/vue/': [
+    '/vue-ecology/rfcs/': [
         {
-            text: 'vue',
+            text: 'Vue RFCs翻译',
             children: [
                 {
-                    text: 'rfc',
-                    link: '/vue/rfc/README.md'
+                    text: '什么是RFC？',
+                    link: '/vue-ecology/rfcs/什么是RFC.md'
                 }
             ]
-        }
+        },
+    ],
+    '/vue-ecology/vuepress/': [
+        {
+            text: '基于vuepress搭建博客',
+            children: [
+                '/vue-ecology/vuepress/README.md',
+                '/vue-ecology/vuepress/初始化.md',
+                '/vue-ecology/vuepress/配置.md',
+                '/vue-ecology/vuepress/YAML规范.md',
+                '/vue-ecology/vuepress/部署.md',
+            ]
+        },
     ],
     '/base/': [
         {

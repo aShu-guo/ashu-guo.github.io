@@ -10,9 +10,9 @@ const navbar: false | NavbarConfig = [
     },
     {
         text: 'Vue',
-        link: '/vue/',
         children: [
-            {text: 'RFC', link: '/vue/rfc/'},
+            {text: 'RFCs翻译', link: '/vue-ecology/rfcs/'},
+            {text: 'vuepress博客搭建', link: '/vue-ecology/vuepress/'},
         ]
     }
 ]

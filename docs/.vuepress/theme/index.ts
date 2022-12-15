@@ -5,8 +5,7 @@ import sidebar from "./sidebar";
 export default {
     theme: defaultTheme({
         repo: 'https://github.com/aShu-guo/ashu-guo.github.io',
-        editLink: true,
-        editLinkText: '编辑此页',
+        editLink: false,
         docsBranch: 'master',
         lastUpdated: true,
         lastUpdatedText: '最近更新时间',

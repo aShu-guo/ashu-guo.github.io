@@ -11,6 +11,9 @@ export default defineUserConfig({
             lang: 'zh-CN'
         }
     },
+    markdown:{
+
+    },
     ...plugins,
     ...theme,
 })

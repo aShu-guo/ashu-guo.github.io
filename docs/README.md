@@ -13,6 +13,6 @@ actions:
   link: /base/css/css单位辨析.md
   type: primary
 
-footer: MIT Licensed | Copyright © 2018-present Evan You
+footer: MIT Licensed | Copyright © 2018-present aShu_guo
 
 ---

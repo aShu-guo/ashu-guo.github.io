@@ -18,7 +18,7 @@ import {tocPlugin} from '@vuepress/plugin-toc'
 
 export default {
     plugins: [
-        googleAnalyticsPlugin({id: '4349098458'}),
+        googleAnalyticsPlugin({id: 'G-0H3Z4EZZYF'}),
         // backToTopPlugin(),
         // mediumZoomPlugin(),
         // gitPlugin(),
