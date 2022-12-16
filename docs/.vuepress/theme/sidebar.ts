@@ -5,10 +5,10 @@ const sidebar: false | "auto" | SidebarConfig = {
         {
             text: 'Vue RFCs翻译',
             children: [
-                {
-                    text: '什么是RFC？',
-                    link: '/vue-ecology/rfcs/什么是RFC.md'
-                }
+                '/vue-ecology/rfcs/README.md',
+                '/vue-ecology/rfcs/什么是RFC.md',
+                '/vue-ecology/rfcs/0001-准备篇.md',
+                '/vue-ecology/rfcs/0001-new-slot-syntax.md'
             ]
         },
     ],
