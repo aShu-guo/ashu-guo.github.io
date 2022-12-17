@@ -117,7 +117,26 @@
 
 ## 详细设计
 
+介绍一个新指令：v-slot
 
+它可以在插槽容器`<template>`上使用，来表示传递给组件的插槽，其中插槽名称可以通过**自定义参数**传递：
+
+```html
+
+<foo>
+    <template v-slot:header>
+        <div class="header"></div>
+    </template>
+
+    <template v-slot:body>
+        <div class="body"></div>
+    </template>
+
+    <template v-slot:footer>
+        <div class="footer"></div>
+    </template>
+</foo>
+```
 
 
 
