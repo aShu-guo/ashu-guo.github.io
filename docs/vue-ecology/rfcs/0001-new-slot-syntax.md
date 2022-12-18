@@ -119,7 +119,7 @@
 
 介绍一个新指令：v-slot
 
-它可以在插槽容器`<template>`上使用，来表示传递给组件的插槽，其中插槽名称可以通过**自定义参数**传递：
+- 它可以在插槽容器`<template>`上使用，来表示传递给组件的插槽，其中插槽名称可以通过**自定义参数**传递：
 
 ```html
 
@@ -134,6 +134,19 @@
 
     <template v-slot:footer>
         <div class="footer"></div>
+    </template>
+</foo>
+```
+
+如果是接受props的作用域插槽，则可以使用指令的属性值声明接受的props，传递给`v-slot`的属性值与slot-scope中变量值工作方式相同，因此支持ES6解构：
+
+```html
+
+<foo>
+    <template v-slot:header="{ msg }">
+        <div class="header">
+            Message from header slot: {{ msg }}
+        </div>
     </template>
 </foo>
 ```
