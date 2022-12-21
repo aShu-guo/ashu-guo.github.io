@@ -10,7 +10,8 @@ const sidebar: false | "auto" | SidebarConfig = {
                 '/vue-ecology/rfcs/0001-准备篇.md',
                 '/vue-ecology/rfcs/0001-new-slot-syntax.md',
                 '/vue-ecology/rfcs/0002-准备篇.md',
-                '/vue-ecology/rfcs/0002-slot-syntax-shorthand.md'
+                '/vue-ecology/rfcs/0002-slot-syntax-shorthand.md',
+                '/vue-ecology/rfcs/0003-准备篇.md'
             ]
         },
     ],
