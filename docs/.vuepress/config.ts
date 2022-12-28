@@ -11,9 +11,17 @@ export default defineUserConfig({
             lang: 'zh-CN'
         }
     },
-    markdown:{
-
-    },
+    head: [
+        ['script', {}, `
+        var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1018dd87d1b5e3227f4af1ff2ea60dea";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();`]
+    ],
+    markdown: {},
     ...plugins,
     ...theme,
 })

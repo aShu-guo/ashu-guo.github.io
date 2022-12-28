@@ -1,5 +1,5 @@
 // 开启google分析
-import {googleAnalyticsPlugin} from "@vuepress/plugin-google-analytics";
+// import {googleAnalyticsPlugin} from "@vuepress/plugin-google-analytics";
 // 开启本地搜索
 import {searchPlugin} from "@vuepress/plugin-search";
 // 开启语法高亮
@@ -18,7 +18,7 @@ import {tocPlugin} from '@vuepress/plugin-toc'
 
 export default {
     plugins: [
-        googleAnalyticsPlugin({id: 'G-0H3Z4EZZYF'}),
+        // googleAnalyticsPlugin({id: 'G-0H3Z4EZZYF'}),
         // backToTopPlugin(),
         // mediumZoomPlugin(),
         // gitPlugin(),
