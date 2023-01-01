@@ -60,7 +60,7 @@ const obj = observable({})
 - `Vue.set`(仅存在兼容版本中)
 - `Vue.delete`(仅存在兼容版本中)
 
-## 内置的helper
+## 内置的helper 
 
 
 
