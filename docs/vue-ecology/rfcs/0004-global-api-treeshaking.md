@@ -60,8 +60,81 @@ const obj = observable({})
 - `Vue.set`(仅存在兼容版本中)
 - `Vue.delete`(仅存在兼容版本中)
 
-## 内置的helper 
+## 内置的helper
 
+除了公共API，一些其他的内置组件或者helper也要具名导出。编译器才会只导出用到的API，例如：
+
+```html
+
+<transition>
+    <div v-show="ok">hello</div>
+</transition>
+```
+
+编译结果如下（只是处于解释目的，并不是实际输出）：
+
+```js
+import {h, Transition, applyDirectives, vShow} from 'vue'
+
+export function render() {
+    return h(Transition, [
+        applyDirectives(h('div', 'hello'), this, [vShow, this.ok])
+    ])
+}
+```
+
+这意味着，`Transition`组件只会在被实际使用时才会被导出。
+
+**需要注意以上只适用于支持tree-shaking的打包器（bundler）构建出的ES模块产物，- UMD产物仍会包含所有API并且导出Vue的所有全局变量（并且编译器将会输出适当的产物）
+**
+
+## 缺点
+
+用户不能再单独导出Vue变量来使用API。然而，这对于打包体积而言是有价值的。
+
+### 在插件中使用全局API
+
+一些插件可能依赖原有暴露在Vue上的全局API：
+
+```js
+const plugin = {
+    install: Vue => {
+        Vue.nextTick(() => {
+            // ...
+        })
+    }
+}
+```
+
+在3.0版本，插件开发者必须直接导出要使用的API：
+
+```js
+import {nextTick} from 'vue'
+
+const plugin = {
+    install: app => {
+        nextTick(() => {
+            // ...
+        })
+    }
+}
+```
+
+这将会造成一些负担，因为要求库开发者需要合理配置Vue相关的打包配置：
+
+- Vue不应该被打包进库中；
+- 对于ES模块构建，应该保留导出的API并最终交给打包器处理；
+- 对于UMD/browser构建，应该先尝试`Vue.h`然后再降级`require`处理。
+
+这是React的常见做法，而且也可能存在webpack、rollup中。一些Vue的库也是如此做的。我们仅需要提供合适的文档以及工具支持。
+
+## 可选的
+
+N/A
+
+## 采取的策略
+
+应该提供一个code模版作为迁移工具的一部分。
 
 
 
