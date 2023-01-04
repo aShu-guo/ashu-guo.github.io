@@ -16,6 +16,7 @@ const sidebar: false | "auto" | SidebarConfig = {
                 '/vue-ecology/rfcs/0004-global-api-treeshaking.md',
                 '/vue-ecology/rfcs/0005-准备篇.md',
                 '/vue-ecology/rfcs/0005-replace-v-bind-sync-with-v-model-argument.md',
+                '/vue-ecology/rfcs/0006-slots-unification.md',
             ]
         },
     ],
