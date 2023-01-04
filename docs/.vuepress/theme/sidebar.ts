@@ -13,7 +13,9 @@ const sidebar: false | "auto" | SidebarConfig = {
                 '/vue-ecology/rfcs/0002-slot-syntax-shorthand.md',
                 '/vue-ecology/rfcs/0003-准备篇.md',
                 '/vue-ecology/rfcs/0003-dynamic-directive-arguments.md',
-                '/vue-ecology/rfcs/0004-global-api-treeshaking.md'
+                '/vue-ecology/rfcs/0004-global-api-treeshaking.md',
+                '/vue-ecology/rfcs/0005-准备篇.md',
+                '/vue-ecology/rfcs/0005-replace-v-bind-sync-with-v-model-argument.md',
             ]
         },
     ],
