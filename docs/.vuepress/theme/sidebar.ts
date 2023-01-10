@@ -1,6 +1,16 @@
 import {SidebarConfig} from "vuepress";
 
 const sidebar: false | "auto" | SidebarConfig = {
+    '/base/git/': [
+        {
+            text: 'git操作',
+            children: [
+                '/base/git/repo-opt.md',
+                '/base/git/branch-opt-base.md',
+                '/base/git/branch-opt-advance.md'
+            ]
+        }
+    ],
     '/vue-ecology/rfcs/': [
         {
             text: 'Vue RFCs翻译',

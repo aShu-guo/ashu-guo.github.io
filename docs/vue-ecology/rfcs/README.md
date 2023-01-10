@@ -6,7 +6,7 @@
 
 所以希望通过翻译rfc，提供一些可参考的资料，翻译顺序根据个人喜好可能会有先后:)
 
-如果有翻译有误的地方，可通过[github](https://github.com/aShu-guo/ashu-guo.github.io)提issue
+如果有翻译有误的地方，欢迎通过[github](https://github.com/aShu-guo/ashu-guo.github.io)提issue
 
 ## 总体描述
 
