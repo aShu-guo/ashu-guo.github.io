@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-90eb17d0","path":"/vue-ecology/vuex/%E5%8E%9F%E7%90%86-1.html","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1671111769000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":1}]},"filePathRelative":"vue-ecology/vuex/原理-1.md"}');export{e as data};

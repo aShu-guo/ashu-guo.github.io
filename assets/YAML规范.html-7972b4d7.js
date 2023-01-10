@@ -1,0 +1,1 @@
+import{_ as t,p as a,q as c,R as e,t as r}from"./framework-96b046e1.js";const s={},_=e("h1",{id:"yaml规范",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#yaml规范","aria-hidden":"true"},"#"),r(" YAML规范")],-1),o=[_];function n(d,l){return a(),c("div",null,o)}const h=t(s,[["render",n],["__file","YAML规范.html.vue"]]);export{h as default};

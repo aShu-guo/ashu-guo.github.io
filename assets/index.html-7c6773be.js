@@ -1,0 +1,1 @@
+import{_ as t,p as a,q as c,R as e,t as r}from"./framework-96b046e1.js";const n={},s=e("h2",{id:"什么是rfc",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#什么是rfc","aria-hidden":"true"},"#"),r(" 什么是RFC")],-1),o=[s];function _(d,i){return a(),c("div",null,o)}const h=t(n,[["render",_],["__file","index.html.vue"]]);export{h as default};

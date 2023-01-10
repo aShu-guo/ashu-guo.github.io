@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-7c83a5a2","path":"/vue-ecology/vue/vue2/vue2-option%E5%90%88%E5%B9%B6%E7%AD%96%E7%95%A5.html","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1671111769000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":1}]},"filePathRelative":"vue-ecology/vue/vue2/vue2-option合并策略.md"}');export{e as data};

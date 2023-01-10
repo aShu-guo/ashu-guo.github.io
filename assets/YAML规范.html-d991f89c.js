@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-d8844a42","path":"/vue-ecology/vuepress/YAML%E8%A7%84%E8%8C%83.html","title":"YAML规范","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1671111769000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":1}]},"filePathRelative":"vue-ecology/vuepress/YAML规范.md"}');export{e as data};

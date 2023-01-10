@@ -1,0 +1,1 @@
+const a=JSON.parse('{"key":"v-06d531aa","path":"/base/es6-above/async%E5%92%8Cawait.html","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1670840685000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":1}]},"filePathRelative":"base/es6-above/async和await.md"}');export{a as data};

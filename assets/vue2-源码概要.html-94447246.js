@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-f5a9a856","path":"/vue-ecology/vue/vue2/vue2-%E6%BA%90%E7%A0%81%E6%A6%82%E8%A6%81.html","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1671111769000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":1}]},"filePathRelative":"vue-ecology/vue/vue2/vue2-源码概要.md"}');export{e as data};

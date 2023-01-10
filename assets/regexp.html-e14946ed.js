@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-d36f2112","path":"/base/js-native/regexp.html","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1670840685000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":1}]},"filePathRelative":"base/js-native/regexp.md"}');export{e as data};

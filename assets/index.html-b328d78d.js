@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-e0f80f9e","path":"/base/css/","title":"","lang":"zh-CN","frontmatter":{},"headers":[{"level":2,"title":"什么是RFC","slug":"什么是rfc","link":"#什么是rfc","children":[]}],"git":{"updatedTime":1671111769000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":1}]},"filePathRelative":"base/css/README.md"}');export{e as data};

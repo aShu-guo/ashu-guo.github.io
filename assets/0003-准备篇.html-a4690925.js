@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-376f47fd","path":"/vue-ecology/rfcs/0003-%E5%87%86%E5%A4%87%E7%AF%87.html","title":"0003-准备篇","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1672155828000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":3}]},"filePathRelative":"vue-ecology/rfcs/0003-准备篇.md"}');export{e as data};

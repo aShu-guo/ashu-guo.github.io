@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-dca6a076","path":"/vue-ecology/vue/vue3/watch%E4%B8%8EwatchEffect.html","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1671111769000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":1}]},"filePathRelative":"vue-ecology/vue/vue3/watch与watchEffect.md"}');export{e as data};

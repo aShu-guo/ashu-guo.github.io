@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-3411fa26","path":"/vue-ecology/vue/vue3/%E6%A8%A1%E6%9D%BF%E5%BC%95%E7%94%A8.html","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1671111769000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":1}]},"filePathRelative":"vue-ecology/vue/vue3/模板引用.md"}');export{e as data};

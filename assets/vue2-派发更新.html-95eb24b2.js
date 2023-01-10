@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-8c7b19ee","path":"/vue-ecology/vue/vue2/vue2-%E6%B4%BE%E5%8F%91%E6%9B%B4%E6%96%B0.html","title":"","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1671111769000,"contributors":[{"name":"aShu-guo","email":"guochengli97@163.com","commits":1}]},"filePathRelative":"vue-ecology/vue/vue2/vue2-派发更新.md"}');export{e as data};
