@@ -17,14 +17,14 @@ const sidebar: false | "auto" | SidebarConfig = {
             children: [
                 '/vue-ecology/rfcs/README.md',
                 '/vue-ecology/rfcs/什么是RFC.md',
-                '/vue-ecology/rfcs/0001-准备篇.md',
+                '/vue-ecology/rfcs/0001-prepare.md',
                 '/vue-ecology/rfcs/0001-new-slot-syntax.md',
-                '/vue-ecology/rfcs/0002-准备篇.md',
+                '/vue-ecology/rfcs/0002-prepare.md',
                 '/vue-ecology/rfcs/0002-slot-syntax-shorthand.md',
-                '/vue-ecology/rfcs/0003-准备篇.md',
+                '/vue-ecology/rfcs/0003-prepare.md',
                 '/vue-ecology/rfcs/0003-dynamic-directive-arguments.md',
                 '/vue-ecology/rfcs/0004-global-api-treeshaking.md',
-                '/vue-ecology/rfcs/0005-准备篇.md',
+                '/vue-ecology/rfcs/0005-prepare.md',
                 '/vue-ecology/rfcs/0005-replace-v-bind-sync-with-v-model-argument.md',
                 '/vue-ecology/rfcs/0006-slots-unification.md',
             ]
