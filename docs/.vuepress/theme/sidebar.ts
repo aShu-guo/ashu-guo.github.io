@@ -27,6 +27,9 @@ const sidebar: false | "auto" | SidebarConfig = {
                 '/vue-ecology/rfcs/0005-prepare.md',
                 '/vue-ecology/rfcs/0005-replace-v-bind-sync-with-v-model-argument.md',
                 '/vue-ecology/rfcs/0006-slots-unification.md',
+                '/vue-ecology/rfcs/0007-prepare.md',
+                '/vue-ecology/rfcs/0007-functional-async-api-change.md',
+                '/vue-ecology/rfcs/0013-composition-api.md',
             ]
         },
     ],
