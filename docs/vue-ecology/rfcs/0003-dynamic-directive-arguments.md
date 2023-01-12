@@ -117,7 +117,7 @@ return h('div', {
 
 这要求在自定义指令上下文中新增`binding.oldArgs`。
 
-## 可选的
+## 可替代方案
 
 N/A
 
