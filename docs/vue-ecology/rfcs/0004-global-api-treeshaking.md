@@ -85,8 +85,7 @@ export function render() {
 
 这意味着，`Transition`组件只会在被实际使用时才会被导出。
 
-**需要注意以上只适用于支持tree-shaking的打包器（bundler）构建出的ES模块产物，- UMD产物仍会包含所有API并且导出Vue的所有全局变量（并且编译器将会输出适当的产物）
-**
+**需要注意以上只适用于支持tree-shaking的打包器（bundler）构建出的ES模块产物，- UMD产物仍会包含所有API并且导出Vue的所有全局变量（并且编译器将会输出适当的产物）**
 
 ## 缺点
 

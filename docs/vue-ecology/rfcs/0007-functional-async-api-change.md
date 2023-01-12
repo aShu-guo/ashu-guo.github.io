@@ -71,7 +71,7 @@ const FunctionalComp = (props, {slots, attrs, emit}) => {
 
 ### 与旧语法之间的比较
 
-新的函数参数应该提供完全替换2.x函数式组件中渲染上下文的能力。
+新的参数列表需要完全具备可替换当前函数式组件参数的能力：
 
 - `props`和`slots`值与旧语法保持一；
 - `data`和`children`不再是必须的（使用props和slot即可）；
@@ -90,7 +90,7 @@ const FunctionalComp = props => {
 
 - 将会移除`parent`的访问权限。这是一些内部用例的逃生舱 - 在用户侧，props和injections应该是首选。
 
-## 可选的props声明
+### 可选的props声明
 
 为了在简单用例中使用更加方便，在3.x中函数式组件中，props的声明不再是必须的：
 
@@ -122,7 +122,7 @@ FunctionalComp.props = {
 
 ### 异步组件创建
 
-还在被讨论中（在本RFC同时，也在讨论异步组件创建的PR，并且在本文写之前已经实现）。
+还在被讨论中（译者注：在本RFC实现的同时，也在讨论异步组件创建的PR，并且在翻译本文之前已经实现）。
 
 ## 缺点
 
