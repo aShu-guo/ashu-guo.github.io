@@ -87,7 +87,7 @@ h('div', {
 
 这个结构继承自[Snabbdom](https://github.com/snabbdom/snabbdom/blob/master/README-zh_CN.md)
 ，Vue2.x中的虚拟DOM实现原理是便是基于此。这样设计的原因是模块化复杂的diff逻辑：一个单独的模块（例如`class`模块）处理`class`
-属性。处理每个绑定将的逻辑也更加明确。
+属性。处理每个绑定的逻辑也更加明确。
 
 但是，随着时间的推移，我们主要到相对于扁平化的结构，目前内置的结构存在很多问题：
 
