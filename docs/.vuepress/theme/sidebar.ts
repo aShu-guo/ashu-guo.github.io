@@ -33,6 +33,7 @@ const sidebar: false | "auto" | SidebarConfig = {
                 '/vue-ecology/rfcs/0008-render-function-api-change.md',
                 '/vue-ecology/rfcs/0009-prepare.md',
                 '/vue-ecology/rfcs/0009-global-api-change.md',
+                '/vue-ecology/rfcs/0011-v-model-api-change.md',
                 '/vue-ecology/rfcs/0013-composition-api.md',
             ]
         },
