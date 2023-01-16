@@ -34,6 +34,7 @@ const sidebar: false | "auto" | SidebarConfig = {
                 '/vue-ecology/rfcs/0009-prepare.md',
                 '/vue-ecology/rfcs/0009-global-api-change.md',
                 '/vue-ecology/rfcs/0011-v-model-api-change.md',
+                '/vue-ecology/rfcs/0012-custom-directive-api-change.md',
                 '/vue-ecology/rfcs/0013-composition-api.md',
             ]
         },
