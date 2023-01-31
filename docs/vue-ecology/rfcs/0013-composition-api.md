@@ -401,4 +401,4 @@ export default {
 如果我们颜色标记这些代码关注点，我们注意到当用组件选项表示时它们是多么分散：
 ![code-scatter.png](/imgs/vue-rfcs/code-scatter.png)
 
-
+这样的片段确实会使理解和维护一个复杂组件变得困难。

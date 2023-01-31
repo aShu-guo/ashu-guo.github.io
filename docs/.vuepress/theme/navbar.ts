@@ -17,6 +17,14 @@ const navbar: false | NavbarConfig = [
             {text: '核心库RFCs翻译', link: '/vue-ecology/rfcs/'},
             {text: 'vuepress博客搭建', link: '/vue-ecology/vuepress/'},
         ]
+    },
+    {
+        text: '英语学习',
+        link: '/english-study/',
+    },
+    {
+        text: '计算机图形学',
+        link: '/computer-graphics/',
     }
 ]
 

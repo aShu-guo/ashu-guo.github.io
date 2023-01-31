@@ -53,6 +53,16 @@ const sidebar: false | "auto" | SidebarConfig = {
             ]
         },
     ],
+    '/english-study/': [
+        {
+            text: '英语学习记录',
+            children: [
+                '/english-study/README.md',
+                '/english-study/句子结构.md',
+                '/english-study/短语.md'
+            ]
+        }
+    ],
     '/base/': [
         {
             text: '技术基础',
