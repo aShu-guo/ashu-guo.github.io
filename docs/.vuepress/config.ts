@@ -21,7 +21,11 @@ export default defineUserConfig({
   s.parentNode.insertBefore(hm, s);
 })();`]
     ],
-    markdown: {},
+    markdown: {
+        headers: {
+            level: [2, 3, 4]
+        }
+    },
     ...plugins,
     ...theme,
 })

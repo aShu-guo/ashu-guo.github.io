@@ -15,7 +15,7 @@ export default {
         toggleSidebar: '切换侧边栏',
         contributors: true,
         navbar,
-        sidebarDepth: 4,
-        sidebar
-    })
+        sidebarDepth: 5,
+        sidebar,
+    }),
 }
