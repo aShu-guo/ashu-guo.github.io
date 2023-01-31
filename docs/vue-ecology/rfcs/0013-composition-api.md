@@ -44,10 +44,12 @@ export default {
 我们都喜欢Vue的简单易学以及使构建中小项目变得轻而易举。但是随着Vue被广泛使用，许多用户也使用Vue构建大型项目 -
 团队多个开发者协同合作，在很长一段时间内迭代、维护的那些。这些年，我们注意到许多基于当前Vue API的项目遇到的编程模型上的局限性。问题可以归纳为两个方面：
 
-1. 随着功能不断新增，复杂组件的代码变得难理解。尤其是当开发者阅读不是自己写的代码时。这个问题的根源是Vue现存API强制基于选项组织代码，但是在一些用例中，按逻辑关注点组织代码更有意义。
+1. 随着功能不断新增，复杂组件的代码变得难理解。尤其是当开发者阅读不是自己写的代码时。这个问题的根源是Vue现存API强制基于Options
+   API组织代码，但是在一些用例中，按逻辑关注点组织代码更有意义。
 2. 对于在多个组件复用和提取逻辑，缺少简洁、成本小的机制。（更多细节在[逻辑提取和代码复用](#逻辑提取和代码复用)）
 
-在这个RFC的提议中，提供用户在组织组件代码时更多的灵活性。在处理每个特定功能时，不再强制基于选项组织代码，现在可以基于函数组织代码。提供的APIs在不同组件中，甚至直接在组件外提取和复用逻辑时。我们将会在[详细设计](#详细设计)
+在这个RFC的提议中，提供用户在组织组件代码时更多的灵活性。在处理每个特定功能时，不再强制基于Options
+API组织代码，现在可以基于函数组织代码。提供的APIs在不同组件中，甚至直接在组件外提取和复用逻辑时。我们将会在[详细设计](#详细设计)
 章节展示是如何实现的。
 
 ### 更好的类型推断
@@ -368,7 +370,7 @@ export default {
 
 ### 代码组织
 
-到此，我们已经复制了带有导入函数的组件API，但是要做什么呢？使用选项定义组件似乎比在一个大函数中混合所有逻辑更有组织。
+到此，我们已经复制了带有导入函数的组件API，但是要做什么呢？使用Options API定义组件似乎比在一个大函数中混合所有逻辑更有组织。
 
 这是第一印象的理解。但是正如我们在[动机](#动机)章节提及的那样，我们相信组合式API可以产出更好的有组织的代码，尤其是在复杂组件中。这里我们将会解释为什么。
 
@@ -380,7 +382,7 @@ export default {
 
 想一想我们将如何引导一位开发人员完成一个像上面链接的大组件。你更可能是从"这个组件是解决问题X、Y和Z的"而不是"
 这个组件包含这些data属性、计算属性、方法"。当开始理解组件时，我们更多的关心"这个组件想要做什么"（例如：代码背后的意图）而不是"
-组件使用了哪些选项"。使用基于选项组织代码时可以自然的回答后者，在表达前者时很差。
+组件使用了哪些选项"。使用基于Options API组织代码时可以自然的回答后者，在表达前者时很差。
 
 #### 逻辑关注点 vs 选项
 
@@ -395,10 +397,192 @@ export default {
 - 切换展示隐藏的目录
 - 处理当前工作目录的改变
 
-你可以在阅读了基于选项的代码分辨出这些逻辑是哪个关注点的一部分么？这确实有点困难。你会注意到和一个指定逻辑关注点相关的代码经常是片段的而且散落在各个位置。例如，这个"
+你可以在阅读了基于Options
+API的代码分辨出这些逻辑是哪个关注点的一部分么？这确实有点困难。你会注意到和一个指定逻辑关注点相关的代码经常是片段的而且散落在各个位置。例如，这个"
 创建新目录"功能使用了两个data属性、一个计算属性和一个方法（这个方法定义在距离data属性100行之外的地方）。
 
 如果我们颜色标记这些代码关注点，我们注意到当用组件选项表示时它们是多么分散：
 ![code-scatter.png](/imgs/vue-rfcs/code-scatter.png)
 
-这样的片段确实会使理解和维护一个复杂组件变得困难。
+这样的片段确实会使理解和维护一个复杂组件变得困难。通过选项强制分离代码隐藏了潜在的逻辑关注点。另外，当理解一个逻辑关注点时，我们必须不断的在相关选项代码块中不断跳转。
+
+> 注意：原始代码可能有个几个地方可以改进，但是我们在没有修改的情况下展示了最新提交的代码，以提供我们自己编写的实际生产代码示例。
+
+如果我们可以把相同逻辑关注点的代码收集在一起将会很棒。而且这也是确实也是组合式API提供的能力。这个"新建目录"的功能可以通过这种方式实现：
+
+```js
+function useCreateFolder(openFolder) {
+    // originally data properties
+    const showNewFolder = ref(false)
+    const newFolderName = ref('')
+
+    // originally computed property
+    const newFolderValid = computed(() => isValidMultiName(newFolderName.value))
+
+    // originally a method
+    async function createFolder() {
+        if (!newFolderValid.value) return
+        const result = await mutate({
+            mutation: FOLDER_CREATE,
+            variables: {
+                name: newFolderName.value
+            }
+        })
+        openFolder(result.data.folderCreate.path)
+        newFolderName.value = ''
+        showNewFolder.value = false
+    }
+
+    return {
+        showNewFolder,
+        newFolderName,
+        newFolderValid,
+        createFolder
+    }
+}
+```
+
+注意所有关于新建目录的逻辑是如何收集和封装在单一函数中。由于它具有描述性的名字，看到这个函数就可以知道它是做什么用的。这就是我们称为组合式函数的形式。约定以use开头的函数来标识它是一个组合式函数。这个模式可以在这个组件上所有其他逻辑关注点上使用，来解耦逻辑。
+
+![componsion-api-pattern.png](/imgs/vue-rfcs/componsion-api-pattern.png)
+
+> 此比较不包含导出语句和`setup()`
+> 函数。使用组合式API重新实现的组件可以在[此处](https://gist.github.com/yyx990803/8854f8f6a97631576c14b63c8acd8f2e)查看
+
+每个逻辑关注点的代码都通过组合式函数收集在一起。当开发大型组件时，省略了在选项之间来回跳转。组合式函数也可以在IDE中折叠起来以便更容易浏览：
+
+```js
+export default {
+    setup() { // ...
+    }
+}
+
+function useCurrentFolderData(networkState) { // ...
+}
+
+function useFolderNavigation({networkState, currentFolderData}) { // ...
+}
+
+function useFavoriteFolder(currentFolderData) { // ...
+}
+
+function useHiddenFolders() { // ...
+}
+
+function useCreateFolder(openFolder) { // ...
+}
+```
+
+`setup()`函数现在主要用作调用所有组合函数的入口点；
+
+```js
+export default {
+    setup() {
+        // Network
+        const {networkState} = useNetworkState()
+
+        // Folder
+        const {folders, currentFolderData} = useCurrentFolderData(networkState)
+        const folderNavigation = useFolderNavigation({networkState, currentFolderData})
+        const {favoriteFolders, toggleFavorite} = useFavoriteFolders(currentFolderData)
+        const {showHiddenFolders} = useHiddenFolders()
+        const createFolder = useCreateFolder(folderNavigation.openFolder)
+
+        // Current working directory
+        resetCwdOnLeave()
+        const {updateOnCwdChanged} = useCwdUtils()
+
+        // Utils
+        const {slicePath} = usePathUtils()
+
+        return {
+            networkState,
+            folders,
+            currentFolderData,
+            folderNavigation,
+            favoriteFolders,
+            toggleFavorite,
+            showHiddenFolders,
+            createFolder,
+            updateOnCwdChanged,
+            slicePath
+        }
+    }
+}
+```
+
+当然，我们在使用Options API时从来没有写过这样的代码。但是注意setup函数读起来大体描述了组件提供了哪些功能（这在基于option
+API中是完全不存在的）。你也可以根据组合函数之间参数的传递清楚的知道它们的依赖关系。最后，返回值单独用于检查暴露给template哪些变量。
+
+给定相同的功能，通过Options API实现的组件和通过组合函数实现的组件是表达相同逻辑的不同实现方式。Options API强制我们基于
+*选项类型*组织代码，Composition API使我们基于*逻辑关注点*组织代码。
+
+### 逻辑提取和复用
+
+在组件间使用Composition API提取和复用逻辑是极其灵活的。而不再依赖`this`上下文，组合函数仅依赖它的入参和全局导出的Vue
+API。你可以仅简单的将它作为函数导出，复用组件的任何一部分逻辑。你甚至可以通过导出组件整个`setup`函数来实现`extends`相同的功能。
+
+让我们来看一个例子：跟踪鼠标位置。
+
+```js
+import {ref, onMounted, onUnmounted} from 'vue'
+
+export function useMousePosition() {
+    const x = ref(0)
+    const y = ref(0)
+
+    function update(e) {
+        x.value = e.pageX
+        y.value = e.pageY
+    }
+
+    onMounted(() => {
+        window.addEventListener('mousemove', update)
+    })
+
+    onUnmounted(() => {
+        window.removeEventListener('mousemove', update)
+    })
+
+    return {x, y}
+}
+```
+
+这是在组件中使用这个函数的方式：
+
+```js
+import {useMousePosition} from './mouse'
+
+export default {
+    setup() {
+        const {x, y} = useMousePosition()
+        // other logic...
+        return {x, y}
+    }
+}
+```
+
+在基于Composition API的文件浏览器例子中，我们在内部文件中提取了一些工具代码，因为我们发现它们对于其他组件来说也是很有用的。
+
+相同的逻辑复用也可以通过现存的模式例如mixins、高阶组件或者无渲染组件（通过作用域插槽）来实现。在网络上有很多信息来解释这些模式，因此我们不再赘述。相对于组合函数，这些模式每个都有自己的缺点：
+
+- 在渲染上下文中使用的属性来源很模糊。例如，当阅读一个使用了多个mixin的组件中的模板时，很难知道某个属性是从哪个mixin中注入的。
+- 命名冲突。Mixins在`data`和`methods`名上发生冲突，而且高阶函数也会在`props`发生冲突。
+- 性能。高阶函数和无状态组件中需要额外有状态的组件实例时，会带来额外的性能损耗。
+
+相比之下，使用Composition API：
+
+- 在template中使用的属性有清晰的来源，因为它们是从组合函数中返回的值。
+- 从组合函数中返回的值可以是任意值，因此它不会存在命名冲突。
+- 没有为逻辑重用而创建不必要的组件实例。
+
+### 和现有API一起使用
+
+Composition API可以与现有Options API一起使用。
+
+- Composition API会在2.x版本的选项（`data`、`computed`、`methods`）之前解析，而且不能调用定义在这些选项中的属性。
+- 从`setup()`中返回的属性会暴露在`this`上，而且可以在2.x版本的选项中使用。
+
+### 插件开发
+
+如今，许多Vue插件在`this`中注入了属性。例如Vue Router注入了`this.$route`和`this.$router`，而且Vuex注入了`this.$store`。
