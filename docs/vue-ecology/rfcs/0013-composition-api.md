@@ -585,4 +585,246 @@ Composition API可以与现有Options API一起使用。
 
 ### 插件开发
 
-如今，许多Vue插件在`this`中注入了属性。例如Vue Router注入了`this.$route`和`this.$router`，而且Vuex注入了`this.$store`。
+如今，许多Vue插件在`this`中注入了属性。例如Vue Router注入了`this.$route`和`this.$router`，而且Vuex注入了`this.$store`
+。这使得类型推断变得麻烦，因为每个插件都需要用户为注入的属性增加 Vue 类型。
+
+当使用Composition API时，没有`this`上下文。取而代之的是，插件将在内部提供provide和inject并暴露出组合函数。以下是插件的假设代码：
+
+```js
+const StoreSymbol = Symbol()
+
+export function provideStore(store) {
+    provide(StoreSymbol, store)
+}
+
+export function useStore() {
+    const store = inject(StoreSymbol)
+    if (!store) {
+        // throw error, no store provided
+    }
+    return store
+}
+```
+
+在使用时：
+
+```js
+// provide store at component root
+//
+const App = {
+    setup() {
+        provideStore(store)
+    }
+}
+
+const Child = {
+    setup() {
+        const store = useStore()
+        // use the store
+    }
+}
+```
+
+注意store也可以通过在[全局API变更](/vue-ecology/rfcs/0009-global-api-change.md)的RFC中提议的app级别的provide
+API提供，但是在组件消费时，useStore风格API是相同的。
+
+## 缺点
+
+### 引入ref的开销
+
+从技术上讲，Ref是提案中引入的唯一"新"概念。被用来将响应式的值作为变量传递，而不依赖`this`。缺点是：
+
+1. 当使用Composition API时，我们需要不断的区分变量是普通值还是对象，增加了心智负担。
+
+可以通过命名规范或者使用类型系统来大幅减少心智负担（例如：对于ref的变量命名添加`xxxRef`
+后缀）。另外一方面，由于在代码组织上灵活性的提高，组件逻辑通常会被隔离成小函数，其中本地上下文很简单并且 refs 的开销很容易管理。
+
+2. 由于需要`.value`，在阅读和改变Ref时代码相对于使用普通值变得很冗余。
+
+一些用户建议使用编译时语法糖来解决上述问题（类似Svelte
+3）。这在技术上是可行的，但是我们并不认为这在Vue中默认提供是有意义的（就像在[对比Svelte讨论](#对比Svelte)
+中那样）。也就是说，应该在用户侧提供一个babel plugin。
+
+我们也讨论了是否可以仅使用响应式对象来完全避免ref的概念，但是：
+
+- 计算属性的getter会返回基本类型的值，因此一个类似Ref的容器是不可避免的。
+- 组合函数接收和返回基本数据类型时，也需要为了响应性在对象中包裹要返回的值。由于我们没有在框架中提供一个标准的Ref实现，用户非常有可能开发自己类似的模式（造成生态割裂）。
+
+### Ref和Reactive
+
+可以理解，用户会困惑于在使用`Ref`和`Reactive`时如何选择。首先要知道的是只有理解两者时，才能充分使用Composition
+API。只使用其中一个很可能会导致深奥的解决方法或者重复造轮子。
+
+`ref`和`reactive`的使用可以与你如何在标准js中的编码逻辑相比较：
+
+```js
+// style 1: separate variables
+let x = 0
+let y = 0
+
+function updatePosition(e) {
+    x = e.pageX
+    y = e.pageY
+}
+
+// --- compared to ---
+
+// style 2: single object
+const pos = {
+    x: 0,
+    y: 0
+}
+
+function updatePosition(e) {
+    pos.x = e.pageX
+    pos.y = e.pageY
+}
+```
+
+- 如果使用`ref`，我们主要将风格（1）转换为更冗长的等价物（为了保持基本数据类型的响应性）。
+- 如果使用`reactive`，那么大致像风格（2）。我们需要通过`reactive`创建对象。
+
+然而，仅使用reactive导致的问题是在调用组合函数时，必须一直持有函数的返回值对象的引用来保持响应性。这个对象不能被解构和传递：
+
+```js
+// composition function
+function useMousePosition() {
+    const pos = reactive({
+        x: 0,
+        y: 0
+    })
+
+    // ...
+    return pos
+}
+
+// consuming component
+export default {
+    setup() {
+        // reactivity lost!
+        const {x, y} = useMousePosition()
+        return {
+            x,
+            y
+        }
+
+        // reactivity lost!
+        return {
+            ...useMousePosition()
+        }
+
+        // this is the only way to retain reactivity.
+        // you must return `pos` as-is and reference x and y as `pos.x` and `pos.y`
+        // in the template.
+        return {
+            pos: useMousePosition()
+        }
+    }
+}
+```
+
+`toRefs` API可以解决上述问题（将响应式对象中的每个属性都转换为ref实例）：
+
+```js
+function useMousePosition() {
+    const pos = reactive({
+        x: 0,
+        y: 0
+    })
+
+    // ...
+    return toRefs(pos)
+}
+
+// x & y are now refs!
+const {x, y} = useMousePosition()
+```
+
+来总结下，这里有两种可行的风格：
+
+1. 使用`ref`和`reactive`就像你在普通js中声明基本数据类型和对象变量时那样。使用这种风格时，建议使用类型系统来获得IDE支持。
+2. 尽可能使用`reactive`，但是记得从组合函数中返回响应式对象时使用`toRefs`解构对象。这减少了学习`ref`
+   的心智负担，但是并不排除熟悉概念的需要。
+
+在这个阶段，我们认为在`ref`与`reactive`上强制采用最佳实践还为时过早。我们建议您从上述两个选项中选择更符合您风格的一个。我们也会从真实世界收集用户反馈，并且最终在这话题下提供更明确的指导。
+
+### 冗余的返回值
+
+一些用户意识到`setup()`的返回值很冗余而且格式是相同的。
+
+我们认为一个明确的返回值是有利的。它可以让我们更准确的知道哪些属性可以在模板中使用，而且也可以作为一个入口点来跟踪模板使用的属性在组件哪个地方定义的。
+
+有人建议自动暴露在`setup()`中声明的变量，使 return 语句成为可选的。同样，我们认为这不应该是默认的策略，因为它会违背标准
+JavaScript的直觉。然而，有一些方法可以让它在用户侧中变得不那么繁琐：
+
+- 通过IDE插件支持，根据`setup()`中定义的变量自动生成return语句
+- 通过Babel插件隐式生成并插入返回语句。
+
+### 更多的灵活性需要更多的规范
+
+许多用户指出虽然Composition API在组织代码上提供了更多的灵活性，但是也要求更多的规范要引导开发者正确使用。一些用户担心这种API形式会导致新手写出意大利面条那样的代码。换句话说，虽然Composition
+API提高了代码质量的上线，但是也降低了下限。
+
+我们在一定程度上同意这个观点。但是，我们相信：
+
+1. 上限提升获得受益高于下限降低的损失。
+2. 通过文档和社区的引导，我们可以有效的解决代码组织的问题。
+
+一些用户使用 Angular 1 Controller作为设计如何导致代码编写不佳的示例。 Composition API 和 Angular 1
+Controller之间的最大区别在于它不依赖于共享上下文作用域。这使得将逻辑拆分为单独的函数变得非常容易，这是 JavaScript
+代码组织的核心机制。
+
+任何JavaScript程序都开始于一个入口文件（将其视为程序的`setup()`）。我们基于逻辑关注点拆分代码到多个函数和模块中来组织程序。*
+*Composition API提供给我们以这种方式来实现Vue组件**。换句话说，写出组织良好的JavaScript代码的技巧同样适用于使用Composition
+API精心良好的Vue代码。
+
+## 采取的策略
+
+Composition API完全是新增的，而且不会影响或者废弃现存的2.x版本的API。而且可以在2.x版本通过`@vue/composition`
+库作为插件使用。这个库最初的目的是提供Composition
+API的测试版，来收集用户反馈的。当前库的实现与此提案保持同步，但由于作为插件的技术限制，可能包含轻微的不一致。随着提案的更新，库也会有重大变更，所以在当前阶段并不建议在生产环境使用。
+
+我们计划在3.0版本发布它，而且可以于2.x版本的Options API一同使用。
+
+对于那些在项目中只使用Composition API的用户，我们可能提供一个编译时的标识来丢弃2.x版本中Options
+API相关的代码来减少库的大小。但是，这完全是可选的。
+
+Composition API将定位为高级功能，因为它旨在解决的问题主要出现在大型应用程序中。我们不打算彻底修改文档来它作为默认使用。相反，它将在文档中有自己的专用部分。
+
+## 附录
+
+### 类API的类型问题
+
+引入Class API作为一个可选API的初衷是提供更好的Typescript支持。但是事实上，Vue组件需要将多个属性来源合并到单个`this`
+上下文中，即使是Class API也是如此，这产生了一些挑战。
+
+一个例子是props的类型。为了合并props到this中，我们需要在类组件中使用一个泛型参数或者使用一个装饰器。
+
+这是一个使用泛型参数的例子：
+
+```typescript
+interface Props {
+    message: string
+}
+
+class App extends Component<Props> {
+    static props = {
+        message: String
+    }
+}
+```
+
+因为传递给泛型参数的`interface`仅在类型域中，因此用户仍需要为props代理行为添加运行时props声明。这种双重声明是多余而且笨拙的。
+
+我们考虑将装饰器作为另外一种可选的方式：
+
+```js
+class App extends Component<Props> {
+    @prop message: string
+}
+```
+
+使用装饰器会依赖不确定的2阶段提案，尤其是Typescript当前的实现已经于TC39的提议不同步了。但是无法暴露出在this.$props上的类型声明，这会破坏TSX的支持。用户还可能假设他们可以使用`@props message: string = 'foo'`
+为prop声明一个默认值，但是从技术上讲它不能按着预期工作。
+
+此外，目前还没有方法在类方法的参数中使用上下文类型化 -- 这意味着传递给`render`函数的参数并不具备推断其他类属性类型的能力。
