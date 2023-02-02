@@ -1,4 +1,4 @@
-# 0004-全局API tree-shaking
+# 全局API tree-shaking
 
 ## 概要
 

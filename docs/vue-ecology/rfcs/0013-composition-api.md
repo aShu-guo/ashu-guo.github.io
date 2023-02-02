@@ -1,4 +1,4 @@
-# 0013-组合式API
+# 组合式API
 
 ## 概要
 
@@ -642,7 +642,7 @@ API提供，但是在组件消费时，useStore风格API是相同的。
 2. 由于需要`.value`，在阅读和改变Ref时代码相对于使用普通值变得很冗余。
 
 一些用户建议使用编译时语法糖来解决上述问题（类似Svelte
-3）。这在技术上是可行的，但是我们并不认为这在Vue中默认提供是有意义的（就像在[对比Svelte讨论](#对比Svelte)
+3）。这在技术上是可行的，但是我们并不认为这在Vue中默认提供是有意义的（就像在[相较Svelte讨论](#相较Svelte)
 中那样）。也就是说，应该在用户侧提供一个babel plugin。
 
 我们也讨论了是否可以仅使用响应式对象来完全避免ref的概念，但是：
@@ -796,9 +796,9 @@ Composition API将定位为高级功能，因为它旨在解决的问题主要�
 ### 类API的类型问题
 
 引入Class API作为一个可选API的初衷是提供更好的Typescript支持。但是事实上，Vue组件需要将多个属性来源合并到单个`this`
-上下文中，即使是Class API也是如此，这产生了一些挑战。
+上下文中，即便是Class API也是如此，这产生了一些挑战。
 
-一个例子是props的类型。为了合并props到this中，我们需要在类组件中使用一个泛型参数或者使用一个装饰器。
+一个例子是props的类型。为了合并props到`this`中，我们需要在类组件中使用一个泛型参数或者使用一个装饰器。
 
 这是一个使用泛型参数的例子：
 
@@ -824,7 +824,94 @@ class App extends Component<Props> {
 }
 ```
 
-使用装饰器会依赖不确定的2阶段提案，尤其是Typescript当前的实现已经于TC39的提议不同步了。但是无法暴露出在this.$props上的类型声明，这会破坏TSX的支持。用户还可能假设他们可以使用`@props message: string = 'foo'`
+使用装饰器会依赖不确定的2阶段提案，尤其是Typescript当前的实现已经与TC39的提案不同步了。但是这种方式无法暴露出在this.$props上的类型声明，这会破坏TSX的支持。用户还可能假设他们可以使用`@props message: string = 'foo'`
 为prop声明一个默认值，但是从技术上讲它不能按着预期工作。
 
 此外，目前还没有方法在类方法的参数中使用上下文类型化 -- 这意味着传递给`render`函数的参数并不具备推断其他类属性类型的能力。
+
+### 相较React Hook
+
+Composition API提供了跟React Hook相同的逻辑组合能力，但是也有一些不同。不像React Hooks，`setup()`只会执行一次。这意味着使用Composition
+API写出的代码：
+
+- 通常更符合惯用JavaScript代码的直觉；
+- 对调用顺序是不敏感的，而且根据条件调用；
+- 在每次渲染时不会重新执行，而且只会产生很小的GC压力；
+- 不会出现使用`useCallback`阻止行内`handler`执行造成子组件过多重复渲染的问题；
+- 不会出现使用`useEffect`和`useMemo`时，用户忘记传入正确的参数依赖而捕获旧值的问题。Vue自动依赖追踪保证`watcher`
+  和`computed`的值总是正确的失效。
+
+我们承认React Hook的创造性，而且这个提案的大部分是受它的启发。但是，在它的设计中存在上面提到的问题，而且我们意识到Vue响应式模型可以解决上述问题。
+
+### 相较Svelte
+
+尽管走的是两条路线，但是Composition API和Svelte基于编译的途径确实存在很多相同的概念。
+
+#### Vue
+
+```vue
+
+<script>
+import {ref, watchEffect, onMounted} from 'vue'
+
+export default {
+  setup() {
+    const count = ref(0)
+
+    function increment() {
+      count.value++
+    }
+
+    watchEffect(() => console.log(count.value))
+
+    onMounted(() => console.log('mounted!'))
+
+    return {
+      count,
+      increment
+    }
+  }
+}
+</script>
+```
+
+#### Svelte
+
+```vue
+
+<script>
+import {onMount} from 'svelte'
+
+let count = 0
+
+function increment() {
+  count++
+}
+
+$: console.log(count)
+
+onMount(() => console.log('mounted!'))
+</script>
+```
+
+Svelte的代码看起来更简洁，使用它在编译时做了下面这些事情：
+
+- 隐式的用一个函数将`script`的代码包裹（导入语句除外），并且放在每个组件实例调用的函数中（而不是仅执行一次）
+- 为变量隐式的添加响应性
+- 隐式的暴露所有作用域中的属性到渲染上下文中
+- 将`$`编译为重复执行的代码
+
+从技术上来说，我们也可以在Vue中实现（可能是通过用户侧的Babel插件）。没有这样做的最重要的原因是我们要
+**跟标准Javascript保持一致**。如果用户从Vue文件中提取出`script`
+中的代码时，我们需要让它像标准ES模块那样工作。另一方面，从技术上来说Svelte`<script>`中代码并不是标准的Javascript。通过编译时途径实现存在一些问题：
+
+1. 在有无编译时代码运行不一样。作为一个渐进式框架，许多Vue用户可能希望/需要/必须使用非编译时版本，所以运行时版本并不能作为默认选项。
+   另一方面，Svelte将自身作为一个编译时并且只能在构建之后运行。这是两个框架都在有意识地做出的权衡。
+
+2. 代码在组件外和组件内运行不一样。当抽取Svelte组件的js逻辑到单独的Javascript文件中时，代码将会将变得冗余而且不得不使用低级的、冗余的API。
+3. Svelte的响应式编译只会作用于最高层的变量（并不会作用于在函数中声明的变量），
+   因此我们[不能将可变的状态封装到组件内声明的函数中](https://svelte.dev/repl/4b000d682c0548e79697ddffaeb757a3?version=3.6.2)
+   。这对内部需要函数的代码组织添加了重要限制（就像我们在RFC中建议的那样），这对保证大型组件可维护性是很重要的方式。
+4. 非标准语义使得与 TypeScript 的集成存在问题。
+
+当然这不是说Svelte是个坏主意 - 事实上，这是一个非常具有创新性的方式，而且我们高度尊重Rich的贡献。但是基于Vue的设计约束和目标，我们不得不做出不同的权衡。

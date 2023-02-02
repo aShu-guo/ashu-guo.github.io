@@ -16,28 +16,101 @@ const sidebar: false | "auto" | SidebarConfig = {
             text: 'Vue RFCs翻译',
             children: [
                 '/vue-ecology/rfcs/README.md',
-                '/vue-ecology/rfcs/什么是RFC.md',
-                '/vue-ecology/rfcs/0001-prepare.md',
-                '/vue-ecology/rfcs/0001-new-slot-syntax.md',
-                '/vue-ecology/rfcs/0002-prepare.md',
-                '/vue-ecology/rfcs/0002-slot-syntax-shorthand.md',
-                '/vue-ecology/rfcs/0003-prepare.md',
-                '/vue-ecology/rfcs/0003-dynamic-directive-arguments.md',
-                '/vue-ecology/rfcs/0004-global-api-treeshaking.md',
-                '/vue-ecology/rfcs/0005-prepare.md',
-                '/vue-ecology/rfcs/0005-replace-v-bind-sync-with-v-model-argument.md',
-                '/vue-ecology/rfcs/0006-slots-unification.md',
-                '/vue-ecology/rfcs/0007-prepare.md',
-                '/vue-ecology/rfcs/0007-functional-async-api-change.md',
-                '/vue-ecology/rfcs/0008-prepare.md',
-                '/vue-ecology/rfcs/0008-render-function-api-change.md',
-                '/vue-ecology/rfcs/0009-prepare.md',
-                '/vue-ecology/rfcs/0009-global-api-change.md',
-                '/vue-ecology/rfcs/0011-v-model-api-change.md',
-                '/vue-ecology/rfcs/0012-prepare.md',
-                '/vue-ecology/rfcs/0012-custom-directive-api-change.md',
-                '/vue-ecology/rfcs/0013-prepare.md',
-                '/vue-ecology/rfcs/0013-composition-api.md',
+                '/vue-ecology/rfcs/what\'s RFC.md',
+                {
+                    text: '0001-new-slot-syntax',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0001-prepare.md',
+                        '/vue-ecology/rfcs/0001-new-slot-syntax.md',
+                    ]
+                },
+                {
+                    text: '0002-slot-syntax-shorthand',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0002-prepare.md',
+                        '/vue-ecology/rfcs/0002-slot-syntax-shorthand.md',
+                    ]
+                },
+                {
+                    text: '0003-dynamic-directive-arguments',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0003-prepare.md',
+                        '/vue-ecology/rfcs/0003-dynamic-directive-arguments.md',
+                    ]
+                },
+                {
+                    text: '0004-global-api-treeshaking',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0004-global-api-treeshaking.md',
+                    ]
+                },
+                {
+                    text: '0005-replace-v-bind-sync-with-v-model-argument',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0005-prepare.md',
+                        '/vue-ecology/rfcs/0005-replace-v-bind-sync-with-v-model-argument.md',
+                    ]
+                },
+                {
+                    text: '0006-slots-unification',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0006-slots-unification.md',
+                    ]
+                },
+                {
+                    text: '0007-functional-async-api-change',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0007-prepare.md',
+                        '/vue-ecology/rfcs/0007-functional-async-api-change.md',
+                    ]
+                },
+                {
+                    text: '0008-render-function-api-change',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0008-prepare.md',
+                        '/vue-ecology/rfcs/0008-render-function-api-change.md',
+                    ]
+                },
+                {
+                    text: '0009-global-api-change',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0009-prepare.md',
+                        '/vue-ecology/rfcs/0009-global-api-change.md',
+                    ]
+                },
+                {
+                    text: '0011-v-model-api-change',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0011-v-model-api-change.md',
+                    ]
+                },
+                {
+                    text: '0012-custom-directive-api-change',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0012-prepare.md',
+                        '/vue-ecology/rfcs/0012-custom-directive-api-change.md',
+                    ]
+                },
+                {
+                    text: '0013-composition-api',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0013-prepare.md',
+                        '/vue-ecology/rfcs/0013-composition-api.md',
+                    ]
+                },
+
             ]
         },
     ],
