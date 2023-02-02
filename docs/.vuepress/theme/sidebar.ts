@@ -119,10 +119,10 @@ const sidebar: false | "auto" | SidebarConfig = {
             text: '基于vuepress搭建博客',
             children: [
                 '/vue-ecology/vuepress/README.md',
-                '/vue-ecology/vuepress/初始化.md',
-                '/vue-ecology/vuepress/配置.md',
-                '/vue-ecology/vuepress/YAML规范.md',
-                '/vue-ecology/vuepress/部署.md',
+                '/vue-ecology/vuepress/init.md',
+                '/vue-ecology/vuepress/config.md',
+                '/vue-ecology/vuepress/yaml-standard.md',
+                '/vue-ecology/vuepress/deploy.md',
             ]
         },
     ],
