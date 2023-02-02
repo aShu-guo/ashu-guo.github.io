@@ -14,6 +14,7 @@ export default defineUserConfig({
     head: [
         ['meta', {name: 'keywords', content: '技术博客,Vue RFC中文,vue-rfcs中文,英语学习,计算机图形学'}],
         ['meta', {name: 'baidu-site-verification', content: 'codeva-N62lSHdiac'}],
+        ['meta', {name: 'google-site-verification', content: '50WKctzOTIJE2PQ2mSHqNE0grbjjKmmUJWFkbN1NdfA'}],
         ['script', {}, `
         var _hmt = _hmt || [];
 (function() {
