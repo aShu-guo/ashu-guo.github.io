@@ -4,14 +4,16 @@ import theme from "./theme/index";
 // 站点基础配置
 export default defineUserConfig({
     lang: 'zh-CN',
-    title: 'ashu-guo',
-    description: '个人技术博客:技术思考、技术方案，标准的阅读和翻译、Vue RFC阅读',
+    title: 'aShu_guo技术博客',
+    description: '个人技术博客，记录vue生态学习过程（例如Vue RFC翻译、新特性学习）',
     locales: {
         '/': {
             lang: 'zh-CN'
         }
     },
     head: [
+        ['meta', {name: 'keywords', content: '技术博客,Vue RFC中文,vue-rfcs中文,英语学习,计算机图形学'}],
+        ['meta', {name: 'baidu-site-verification', content: 'codeva-N62lSHdiac'}],
         ['script', {}, `
         var _hmt = _hmt || [];
 (function() {
@@ -24,6 +26,13 @@ export default defineUserConfig({
     markdown: {
         headers: {
             level: [2, 3, 4]
+        },
+        links: {
+            //
+            externalAttrs: {
+                target: '_blank',
+                rel: 'nofollow noopener noreferrer'
+            }
         }
     },
     ...plugins,
