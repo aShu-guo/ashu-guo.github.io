@@ -126,6 +126,15 @@ const sidebar: false | "auto" | SidebarConfig = {
             ]
         },
     ],
+    '/webgis/': [
+        {
+            text: 'WebGIS技术总结',
+            children: [
+                '/webgis/README.md',
+                '/webgis/coordinate.md'
+            ]
+        }
+    ],
     '/english-study/': [
         {
             text: '英语学习记录',

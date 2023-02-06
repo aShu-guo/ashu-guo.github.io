@@ -25,6 +25,10 @@ const navbar: false | NavbarConfig = [
     {
         text: '计算机图形学',
         link: '/computer-graphics/',
+    },
+    {
+        text: 'WebGIS',
+        link: '/webgis/',
     }
 ]
 
