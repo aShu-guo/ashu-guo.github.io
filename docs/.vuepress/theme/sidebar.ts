@@ -126,6 +126,16 @@ const sidebar: false | "auto" | SidebarConfig = {
             ]
         },
     ],
+    '/animation/':[
+        {
+            text: 'Css动画手册',
+            children: [
+                '/animation/README.md',
+                '/animation/animation.md',
+                '/animation/transition.md',
+            ]
+        }
+    ],
     '/webgis/': [
         {
             text: 'WebGIS技术总结',

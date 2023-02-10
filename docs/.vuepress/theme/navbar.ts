@@ -29,6 +29,10 @@ const navbar: false | NavbarConfig = [
     {
         text: 'WebGIS',
         link: '/webgis/',
+    },
+    {
+        text: 'css动画',
+        link: '/animation/',
     }
 ]
 
