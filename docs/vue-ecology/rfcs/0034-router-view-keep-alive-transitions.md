@@ -63,6 +63,19 @@ Found的页面还是要显示默认行为，我们都可以做到。Component值
 
 注意这与在路由表中定义捕获所有路由`path: '/:pathMatch(.*)`来展示Not Found页面的行为是重复的。
 
+:::warning
+在router-view中如此使用，没有在路由表中定义`path: '/:pathMatch(.*)`更灵活。当使用前者时，由于在路由表中找不到要挂载的组件，会将整体替换v-else中的内容。
+但是使用后者时，可以灵活改变Not Found组件渲染的位置。
+:::
+
+#### 使用前者时
+
+![img.png](/imgs/vue-rfcs/router-view-transition2.png)
+
+#### 使用后者时
+
+![img.png](/imgs/vue-rfcs/router-view-transition.png)
+
 ### v-slot属性
 
 - Component：可以传递给渲染函数`h`或者props `is`要求的组件。
