@@ -133,7 +133,16 @@ const sidebar: false | "auto" | SidebarConfig = {
             ]
         },
     ],
-    '/animation/':[
+    '/vue-ecology/problems/': [
+        {
+            text: '疑难问题',
+            children: [
+                '/vue-ecology/problems/README.md',
+                '/vue-ecology/problems/keep-alive.md',
+            ]
+        }
+    ],
+    '/animation/': [
         {
             text: 'Css动画手册',
             children: [
