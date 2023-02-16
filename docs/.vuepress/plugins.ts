@@ -4,11 +4,11 @@
 // import {searchPlugin} from "@vuepress/plugin-search";
 // 为你的文档网站提供搜索功能
 // import {docsearchPlugin} from '@vuepress/plugin-docsearch'
-import {tocPlugin} from '@vuepress/plugin-toc'
+// import {tocPlugin} from '@vuepress/plugin-toc'
 
 export default {
     plugins: [
-        tocPlugin({})
+        // tocPlugin({})
         // googleAnalyticsPlugin({id: 'G-0H3Z4EZZYF'}),
         // docsearchPlugin({}),
         // searchPlugin({}),
