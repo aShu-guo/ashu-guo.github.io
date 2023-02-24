@@ -139,6 +139,7 @@ const sidebar: false | "auto" | SidebarConfig = {
             children: [
                 '/vue-ecology/problems/README.md',
                 '/vue-ecology/problems/keep-alive.md',
+                '/vue-ecology/problems/table.md',
             ]
         }
     ],
