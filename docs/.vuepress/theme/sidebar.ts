@@ -140,6 +140,7 @@ const sidebar: false | "auto" | SidebarConfig = {
                 '/vue-ecology/problems/README.md',
                 '/vue-ecology/problems/keep-alive.md',
                 '/vue-ecology/problems/table.md',
+                '/vue-ecology/problems/think-of-architect.md',
             ]
         }
     ],
