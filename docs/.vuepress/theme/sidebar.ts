@@ -144,16 +144,6 @@ const sidebar: false | "auto" | SidebarConfig = {
             ]
         }
     ],
-    '/animation/': [
-        {
-            text: 'Css动画手册',
-            children: [
-                '/animation/README.md',
-                '/animation/animation.md',
-                '/animation/transition.md',
-            ]
-        }
-    ],
     '/webgis/': [
         {
             text: 'WebGIS技术总结',
@@ -173,66 +163,67 @@ const sidebar: false | "auto" | SidebarConfig = {
             ]
         }
     ],
-    '/base/': [
+    '/base/css': [
         {
-            text: '技术基础',
+            text: 'css',
             children: [
                 {
-                    text: 'css',
+                    text: '渐变色',
+                    collapsible: true,
                     children: [
-                        {
-                            text: '单位辨析',
-                            link: '/base/css/css单位辨析.md'
-                        },
-                        {
-                            text: '像素辨析',
-                            link: '/base/css/像素辨析.md'
-                        },
-                        {
-                            text: '动画入门',
-                            link: '/base/css/动画入门.md'
-                        },
-                        {
-                            text: '字体渐变色',
-                            link: '/base/css/字体渐变色.md'
-                        }
+                        '/base/css/gradual/font.md',
+                        '/base/css/gradual/background.md',
                     ]
                 },
                 {
-                    text: 'es6+',
+                    text: '动画',
+                    collapsible: true,
                     children: [
-                        {
-                            text: 'array',
-                            link: '/base/es6-above/array.md'
-                        },
-                        {
-                            text: 'async和await',
-                            link: '/base/es6-above/async和await.md'
-                        },
-                        {
-                            text: 'es6疑难点',
-                            link: '/base/es6-above/es6疑难点.md'
-                        },
-                        {
-                            text: 'generator',
-                            link: '/base/es6-above/generator.md'
-                        },
-                        {
-                            text: 'promise',
-                            link: '/base/es6-above/promise.md'
-                        },
-                        {
-                            text: '空值容错',
-                            link: '/base/es6-above/空值容错.md'
-                        },
-                        {
-                            text: '解构',
-                            link: '/base/es6-above/解构.md'
-                        }
+                        '/base/css/animation/README.md',
+                        '/base/css/animation/animation.md',
+                        '/base/css/animation/transition.md',
+                    ]
+                },
+                {
+                    text: '像素单位px',
+                    collapsible: true,
+                    children: [
+                        '/base/css/unit/px.md',
+                        '/base/css/unit/viewport.md',
                     ]
                 },
             ]
         },
+    ],
+    '/base/es6-above': [
+        {
+            text: 'array',
+            link: '/base/es6-above/array.md'
+        },
+        {
+            text: 'async和await',
+            link: '/base/es6-above/async和await.md'
+        },
+        {
+            text: 'es6疑难点',
+            link: '/base/es6-above/es6疑难点.md'
+        },
+        {
+            text: 'generator',
+            link: '/base/es6-above/generator.md'
+        },
+        {
+            text: 'promise',
+            link: '/base/es6-above/promise.md'
+        },
+        {
+            text: '空值容错',
+            link: '/base/es6-above/空值容错.md'
+        },
+        {
+            text: '解构',
+            link: '/base/es6-above/解构.md'
+        }
     ]
 }
 

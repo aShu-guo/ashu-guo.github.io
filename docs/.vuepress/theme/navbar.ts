@@ -5,7 +5,8 @@ const navbar: false | NavbarConfig = [
         text: '技术基础',
         link: '/base/',
         children: [
-            {text: 'css', link: '/base/css/'},
+            {text: 'CSS', link: '/base/css/'},
+            {text: 'ES6', link: '/base/es6-above/'},
             {text: 'markdown语法', link: '/base/markdown/'},
             {text: 'git入门及进阶教程', link: '/base/git/'}
         ]
@@ -31,10 +32,6 @@ const navbar: false | NavbarConfig = [
         text: 'WebGIS',
         link: '/webgis/',
     },
-    {
-        text: 'css动画',
-        link: '/animation/',
-    }
 ]
 
 export default navbar
