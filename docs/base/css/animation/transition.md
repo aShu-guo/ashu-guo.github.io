@@ -4,7 +4,7 @@
 
 ## 如何使用？
 
-创建一个过渡状态，必须满足亮点：
+创建一个过渡状态，必须满足两点：
 
 - 添加想要过渡的css属性；
 - 过渡时长。
@@ -32,11 +32,11 @@ div:hover {
 
 ### transition-timing-function
 
-可以指定DOM过渡状态的轨迹
+可以指定DOM过渡状态的速度
 
 ![img.png](/imgs/animation/timing-func.png)
 
-提供了一些内置的过渡函数：ease、ease-in、ease-out等。也提供了另外两种函数实现自定义的过渡轨迹：三次贝塞尔曲线、steps函数。
+提供了一些内置的过渡函数：ease、ease-in、ease-out等。也提供了另外两种函数实现自定义的过渡速度：三次贝塞尔曲线、steps函数。
 
 #### 三次贝塞尔曲线
 
