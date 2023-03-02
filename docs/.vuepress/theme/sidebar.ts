@@ -111,6 +111,22 @@ const sidebar: false | "auto" | SidebarConfig = {
                     ]
                 },
                 {
+                    text: '0014-drop-keycode-support',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0014-prepare.md',
+                        '/vue-ecology/rfcs/0014-drop-keycode-support.md',
+                    ]
+                },
+                {
+                    text: '0015-remove-filters',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0015-prepare.md',
+                        '/vue-ecology/rfcs/0015-remove-filters.md',
+                    ]
+                },
+                {
                     text: '0034-router-view-keep-alive-transitions',
                     collapsible: true,
                     children: [
