@@ -127,6 +127,14 @@ const sidebar: false | "auto" | SidebarConfig = {
                     ]
                 },
                 {
+                    text: '0016-remove-inline-templates',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0016-prepare.md',
+                        '/vue-ecology/rfcs/0016-remove-inline-templates.md',
+                    ]
+                },
+                {
                     text: '0034-router-view-keep-alive-transitions',
                     collapsible: true,
                     children: [
