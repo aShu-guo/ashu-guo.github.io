@@ -145,6 +145,16 @@ const sidebar: false | "auto" | SidebarConfig = {
             ]
         },
     ],
+    '/base/network/':[
+        {
+            text: '网络相关知识',
+            children: [
+                '/base/network/nginx.md',
+                '/base/network/samesite.md',
+                '/base/network/cors.md'
+            ]
+        }
+    ],
     '/vue-ecology/vuepress/': [
         {
             text: '基于vuepress搭建博客',

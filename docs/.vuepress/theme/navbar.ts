@@ -8,6 +8,7 @@ const navbar: false | NavbarConfig = [
             {text: 'CSS', link: '/base/css/'},
             {text: 'ES6', link: '/base/es6-above/'},
             {text: 'markdown语法', link: '/base/markdown/'},
+            {text: '网络基础', link: '/base/network/'},
             {text: 'git入门及进阶教程', link: '/base/git/'}
         ]
     },

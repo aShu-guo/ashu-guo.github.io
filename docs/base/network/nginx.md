@@ -1,3 +1,5 @@
+# nginx
+
 一、nginx命令
 
 1.启动命令：sudo nginx 
