@@ -1,6 +1,7 @@
 # 跨域
 
-跨域限制是`浏览器`独有的安全特点，严格限制**协议、端口、域名**来保证数据的安全。网站的内容可能是从多个服务器中获取资源，
+跨域限制是`浏览器`独有的安全特点（浏览器的行为，即在服务端构建Http请求访问非同源服务端并不会出现跨域问题），
+严格限制**协议、端口、域名**来保证数据的安全。网站的内容可能是从多个服务器中获取资源，
 
 ## 为什么浏览器可以加载不同源的图片资源？
 
@@ -42,7 +43,8 @@
 ## 修改源
 
 通过设置`document.domain`来修改当前源，但是域名必须是上下级关系。例如：在`https://www.aaa.com`
-中设置`document.domain=aaa.com`，在访问时将会通过同源检测，同时也必须在`https://aaa.com`中设置`document.domain=aaa.com`
+中设置`document.domain=aaa.com`，在访问`https://aaa.com`时将会通过同源检测，同时也必须在`https://aaa.com`
+中设置`document.domain=aaa.com`
 来表明允许它这样做。
 
 任何对`document.domain`的赋值操作都会导致端口号置为`null`，因此必须要在两者中都设置`document.domain`来保证端口号相同。
