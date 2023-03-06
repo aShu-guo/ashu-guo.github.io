@@ -1,0 +1,1 @@
+# 移除transition作为template根结点的支持

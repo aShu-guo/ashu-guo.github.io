@@ -6,13 +6,15 @@
 
 ## 如何用css实现动画效果？
 
-主要通过两种方式实现：transition以及Css3中的animation
+主要通过三种方式实现：transition、Css3中的animation、transform
 
 - transition兼容性
   ![img_1.png](/imgs/animation/transition-compatibility.png)
 - animation兼容性（Css 3 提供）
   ![img.png](/imgs/animation/animation-compatibility.png)
-
+- transform 2d && transfrom 3d
+![img.png](/imgs/animation/transform-2d.png)
+![img.png](/imgs/animation/transform-3d.png)
 ### transition与animation区别
 
 1. transition提供了一种实现动画的简单方式，只需要关注起始状态和终止状态即可。如果一个元素处于过渡状态，新的过渡状态会立刻从当前样式开始，而不是起始状态开始。

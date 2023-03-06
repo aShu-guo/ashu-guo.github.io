@@ -135,6 +135,14 @@ const sidebar: false | "auto" | SidebarConfig = {
                     ]
                 },
                 {
+                    text: '0017-transition-as-root',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0017-prepare.md',
+                        '/vue-ecology/rfcs/0017-transition-as-root.md',
+                    ]
+                },
+                {
                     text: '0034-router-view-keep-alive-transitions',
                     collapsible: true,
                     children: [
@@ -216,6 +224,7 @@ const sidebar: false | "auto" | SidebarConfig = {
                         '/base/css/animation/README.md',
                         '/base/css/animation/animation.md',
                         '/base/css/animation/transition.md',
+                        '/base/css/animation/transform.md',
                     ]
                 },
                 {
