@@ -143,6 +143,13 @@ const sidebar: false | "auto" | SidebarConfig = {
                     ]
                 },
                 {
+                    text: '0018-transition-class-change',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0018-transition-class-change.md',
+                    ]
+                },
+                {
                     text: '0034-router-view-keep-alive-transitions',
                     collapsible: true,
                     children: [
@@ -153,7 +160,7 @@ const sidebar: false | "auto" | SidebarConfig = {
             ]
         },
     ],
-    '/base/network/':[
+    '/base/network/': [
         {
             text: '网络相关知识',
             children: [
