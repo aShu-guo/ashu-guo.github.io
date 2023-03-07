@@ -18,6 +18,7 @@ const navbar: false | NavbarConfig = [
         children: [
             {text: '核心库RFCs翻译', link: '/vue-ecology/rfcs/'},
             {text: 'vuepress博客搭建', link: '/vue-ecology/vuepress/'},
+            {text: 'Vue3迁移升级日志', link: '/vue-ecology/migrate/'},
             {text: '疑难问题', link: '/vue-ecology/problems/'},
         ]
     },

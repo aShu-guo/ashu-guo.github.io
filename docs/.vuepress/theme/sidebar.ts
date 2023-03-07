@@ -201,6 +201,14 @@ const sidebar: false | "auto" | SidebarConfig = {
             ]
         }
     ],
+    '/vue-ecology/migrate/':[
+        {
+            text: '2.x迁移至3.x+vite',
+            children: [
+                '/vue-ecology/migrate/README.md',
+            ]
+        }
+    ],
     '/webgis/': [
         {
             text: 'WebGIS技术总结',
