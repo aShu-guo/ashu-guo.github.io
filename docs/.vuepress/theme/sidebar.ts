@@ -150,6 +150,14 @@ const sidebar: false | "auto" | SidebarConfig = {
                     ]
                 },
                 {
+                    text: '0019-remove-data-object-declaration',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0019-prepare.md',
+                        '/vue-ecology/rfcs/0019-remove-data-object-declaration.md',
+                    ]
+                },
+                {
                     text: '0034-router-view-keep-alive-transitions',
                     collapsible: true,
                     children: [
