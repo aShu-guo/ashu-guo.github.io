@@ -206,6 +206,7 @@ const sidebar: false | "auto" | SidebarConfig = {
             text: '2.x迁移至3.x+vite',
             children: [
                 '/vue-ecology/migrate/README.md',
+                '/vue-ecology/migrate/day-1.md',
             ]
         }
     ],
