@@ -207,6 +207,8 @@ const sidebar: false | "auto" | SidebarConfig = {
             children: [
                 '/vue-ecology/migrate/README.md',
                 '/vue-ecology/migrate/day-1.md',
+                '/vue-ecology/migrate/day-2.md',
+                '/vue-ecology/migrate/day-3.md',
             ]
         }
     ],
