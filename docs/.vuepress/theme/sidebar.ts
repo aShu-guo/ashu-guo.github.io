@@ -158,6 +158,14 @@ const sidebar: false | "auto" | SidebarConfig = {
                     ]
                 },
                 {
+                    text: '0020-events-api-change',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0020-prepare.md',
+                        '/vue-ecology/rfcs/0020-events-api-change.md',
+                    ]
+                },
+                {
                     text: '0034-router-view-keep-alive-transitions',
                     collapsible: true,
                     children: [
