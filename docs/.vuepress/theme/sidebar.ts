@@ -166,6 +166,14 @@ const sidebar: false | "auto" | SidebarConfig = {
                     ]
                 },
                 {
+                    text: '0021-router-link-scoped-slot',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0021-prepare.md',
+                        '/vue-ecology/rfcs/0021-router-link-scoped-slot.md',
+                    ]
+                },
+                {
                     text: '0034-router-view-keep-alive-transitions',
                     collapsible: true,
                     children: [
