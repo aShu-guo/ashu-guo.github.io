@@ -174,6 +174,13 @@ const sidebar: false | "auto" | SidebarConfig = {
                     ]
                 },
                 {
+                    text: '0022-router-merge-meta-routelocation',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0022-router-merge-meta-routelocation.md',
+                    ]
+                },
+                {
                     text: '0034-router-view-keep-alive-transitions',
                     collapsible: true,
                     children: [
