@@ -181,6 +181,14 @@ const sidebar: false | "auto" | SidebarConfig = {
                     ]
                 },
                 {
+                    text: '0023-scoped-styles-changes',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0023-prepare.md',
+                        '/vue-ecology/rfcs/0023-scoped-styles-changes.md',
+                    ]
+                },
+                {
                     text: '0034-router-view-keep-alive-transitions',
                     collapsible: true,
                     children: [
