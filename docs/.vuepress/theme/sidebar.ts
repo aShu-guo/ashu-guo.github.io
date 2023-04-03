@@ -11,6 +11,16 @@ const sidebar: false | "auto" | SidebarConfig = {
             ]
         }
     ],
+    '/base/performance/': [
+        {
+            text: 'Performance 性能优化手册',
+            children: [
+                '/base/performance/README.md',
+                '/base/performance/FMP.md',
+                '/base/performance/vitals-metrics.md'
+            ]
+        }
+    ],
     '/vue-ecology/rfcs/': [
         {
             text: 'Vue RFCs翻译',
@@ -232,7 +242,7 @@ const sidebar: false | "auto" | SidebarConfig = {
             ]
         }
     ],
-    '/vue-ecology/migrate/':[
+    '/vue-ecology/migrate/': [
         {
             text: '2.x迁移至3.x+vite',
             children: [
