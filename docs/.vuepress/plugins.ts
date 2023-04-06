@@ -31,10 +31,13 @@ export default {
         }),
         commentPlugin({
             provider: 'Giscus',
-            repo: 'https://github.com/aShu-guo/giscus-discussions',
+            repo: 'aShu-guo/giscus-discussions',
             repoId: 'R_kgDOJThJwQ',
             category: 'General',
             categoryId: 'DIC_kwDOJThJwc4CVlrP',
+            lazyLoading: true,
+            inputPosition: 'bottom',
+            mapping: 'title'
         }),
         copyrightPlugin({
             author: 'ashu_guo',
