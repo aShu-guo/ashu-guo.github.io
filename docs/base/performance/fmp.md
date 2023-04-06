@@ -47,7 +47,11 @@ FMP在lighthouse 6.x版本中废弃
 3. 根据元素权重计算分值
 
 参考：
+
 【1】[前端性能监控](https://caelumtian.github.io/2019/10/22/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A71/)
+
 【2】[阿里FMP前端监控](https://zhuanlan.zhihu.com/p/44933789)
+
 【3】[W3C进行中的首屏绘制标准](https://github.com/w3c/paint-timing)
+
 【4】[以用户为中心的性能指标](https://web.dev/user-centric-performance-metrics/#in-the-field)
