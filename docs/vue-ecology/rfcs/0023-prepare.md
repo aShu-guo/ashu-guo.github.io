@@ -5,12 +5,106 @@
 
 ## scoped的原理是什么？
 
-在将单文件组件解析时，会为组件中的每个标签添加相同的hash，标识这是同一个文件内容。当然也会存在添加多个hash的情况，比如单文件组件的根。
+vue官方提供了vue-loader处理单文件组件（single file component），其中处理css时：
 
-再通过在选择器上加入属性选择器来为当前组件添加样式。
+- 如果style标签中有scoped属性，则会为style标签中selector添加属性选择器，只作用于当前组件
+
+```vue
+
+<template>
+  <div class="example">hi</div>
+</template>
+
+<style scoped>
+.example {
+  color: red;
+}
+</style>
+
+```
+
+输出：
+
+```vue
+
+<template>
+  <div class="example" data-v-xxxxx>hi</div>
+</template>
+
+<style scoped>
+.example[data-v-xxxxx] {
+  color: red;
+}
+</style>
+
+```
+
+- 如果通过:v-deep标记了selector影响子组件，那么会将属性选择器添加在selector前面来影响子组件样式：
+
+```vue
+<!-- son.vue -->
+<template>
+  <div class="son-box">
+    <span class="son-title">子组件</span>
+  </div>
+</template>
+```
+
+```vue
+<!-- parent.vue -->
+<template>
+  <div class="parent-box">
+    <Son></Son>
+  </div>
+</template>
+<script>
+import Son from './son.vue'
+
+export default {
+  components: {Son}
+}
+</script>
+<style scoped>
+.parent-box {
+  color: red;
+}
+
+::v-deep .son-title {
+  font-size: 50px;
+}
+</style>
+
+```
+
+输出：
+
+```vue
+
+<template>
+  <div data-v-xxxxx class="parent-box">
+    <div data-v-xxxxx data-v-yyyyy class="son-box">
+      <span data-v-yyyyy class="son-title">子组件</span>
+    </div>
+  </div>
+</template>
+<script>
+import Son from './son.vue'
+
+export default {
+  components: {Son}
+}
+</script>
+<style scoped>
+.parent-box[data-v-xxxxx] {
+  color: red;
+}
+
+[data-v-xxxxx] .son-title {
+  font-size: 50px;
+}
+</style>
+```
+
+- 子组件的根节点样式会同时受父组件和子组件影响，原因是为了方便布局时，父组件控制子组件根元素的样式
 
 ![img.png](/imgs/vue-rfcs/scoped-style.png)
-
-## ::v-deep 的原理是什么？
-
-从上文可以每个组件的样式是根据hash来影响的，那么添加了`::v-deep`也就意味着将子组件的hash也添加到样式选择器上。
