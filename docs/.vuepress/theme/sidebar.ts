@@ -199,6 +199,14 @@ const sidebar: false | "auto" | SidebarConfig = {
                     ]
                 },
                 {
+                    text: '0024-attribute-coercion-behavior',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0024-prepare.md',
+                        '/vue-ecology/rfcs/0024-attribute-coercion-behavior.md',
+                    ]
+                },
+                {
                     text: '0034-router-view-keep-alive-transitions',
                     collapsible: true,
                     children: [
