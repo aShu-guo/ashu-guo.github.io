@@ -11,6 +11,18 @@ const sidebar: false | "auto" | SidebarConfig = {
             ]
         }
     ],
+    '/hybrid-app/applet/dingding/': [
+        {
+            text: '钉钉小程序',
+            children: [
+                '/hybrid-app/applet/dingding/README.md',
+                '/hybrid-app/applet/dingding/definition.md',
+                '/hybrid-app/applet/dingding/project-structure.md',
+                '/hybrid-app/applet/dingding/syntax.md',
+                '/hybrid-app/applet/dingding/publish.md',
+            ]
+        }
+    ],
     '/base/performance/': [
         {
             text: 'Performance 性能优化手册',
