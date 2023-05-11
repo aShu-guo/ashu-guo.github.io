@@ -219,6 +219,14 @@ const sidebar: false | "auto" | SidebarConfig = {
                     ]
                 },
                 {
+                    text: '0026-async-component-api',
+                    collapsible: true,
+                    children: [
+                        '/vue-ecology/rfcs/0026-prepare.md',
+                        '/vue-ecology/rfcs/0026-async-component-api.md',
+                    ]
+                },
+                {
                     text: '0034-router-view-keep-alive-transitions',
                     collapsible: true,
                     children: [
