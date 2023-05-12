@@ -5,7 +5,7 @@
 在vue中常见的是同步组件，即通过ES6提供的`import`关键字导入的模块，而通过`import()`动态导入的模块为动态加载
 
 :::warning
-`import()` 特性依赖于内置的 `Promise`，在低版本中使用`import()`时，需要添加对应的`polyfill`
+`import()`本身就是一个`Promise`对象，所以特性依赖于内置的 `Promise`，在低版本中使用`import()`时，需要添加对应的`polyfill`
 :::
 
 ## 如何使用异步组件？
@@ -25,6 +25,10 @@ Vue.component('foo', {
 ```
 
 ### 异步
+
+:::tip
+异步时支持传入一个对象或者是一个`resolve`、`reject`的函数
+:::
 
 ```js
 import Vue from 'vue';
@@ -60,7 +64,6 @@ Vue.component('foo', {
     timeout: 3000
 })
 ```
-
 
 定义异步组件时，第二个参数可以传递一个promise对象，来resolve对应的组件属性
 
