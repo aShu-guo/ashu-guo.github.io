@@ -32,21 +32,21 @@ const navbar: false | NavbarConfig = [
                 text: '跨端解决方案',
                 children: [
                     '/hybrid-app/cross/uniapp/',
-                    // '/hybrid-app/cross/taro/',
-                    // '/hybrid-app/cross/iconic/',
-                    // '/hybrid-app/cross/quasar/',
-                    // '/hybrid-app/cross/flutter/',
                 ]
             },
         ]
     },
     {
-        text: '英语学习',
-        link: '/english-study/',
+        text: '计算机课程学习记录',
+        link: '/study-course/',
+        children: [
+            '/study-course/computer-graphics/',
+            '/study-course/computer-organization/',
+        ]
     },
     {
-        text: '计算机图形学',
-        link: '/computer-graphics/',
+        text: '英语学习',
+        link: '/english-study/',
     },
     {
         text: 'WebGIS',

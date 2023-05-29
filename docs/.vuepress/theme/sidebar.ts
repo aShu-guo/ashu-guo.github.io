@@ -34,6 +34,15 @@ const sidebar: false | "auto" | SidebarConfig = {
             ]
         }
     ],
+    '/study-course/computer-organization/': [
+        {
+            text: '读书笔记',
+            children: [
+                '/study-course/computer-organization/README.md',
+                '/study-course/computer-organization/cache.md',
+            ]
+        }
+    ],
     '/vue-ecology/rfcs/': [
         {
             text: 'Vue RFCs翻译',
