@@ -43,6 +43,17 @@ const sidebar: false | "auto" | SidebarConfig = {
             ]
         }
     ],
+    '/vue-ecology/debugger/': [
+        {
+            text: 'Vue3 源码解析',
+            children: [
+                '/vue-ecology/debugger/README.md',
+                '/vue-ecology/debugger/reactive-module.md',
+                '/vue-ecology/debugger/compile-module.md',
+                '/vue-ecology/debugger/block.md',
+            ]
+        }
+    ],
     '/vue-ecology/rfcs/': [
         {
             text: 'Vue RFCs翻译',
