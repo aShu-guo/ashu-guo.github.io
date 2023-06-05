@@ -39,6 +39,7 @@ const sidebar: false | "auto" | SidebarConfig = {
             text: '读书笔记',
             children: [
                 '/study-course/computer-organization/README.md',
+                '/study-course/computer-organization/cpu.md',
                 '/study-course/computer-organization/cache.md',
             ]
         }
