@@ -41,6 +41,13 @@ const sidebar: false | "auto" | SidebarConfig = {
                 '/study-course/computer-organization/README.md',
                 '/study-course/computer-organization/cpu.md',
                 '/study-course/computer-organization/cache.md',
+                '/study-course/computer-organization/io.md',
+                {
+                    text:'拓展',
+                    children:[
+                        '/study-course/computer-organization/why-1byte-8bit.md',
+                    ]
+                }
             ]
         }
     ],
