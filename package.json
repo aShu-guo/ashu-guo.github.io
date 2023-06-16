@@ -11,16 +11,16 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@vuepress/client": "2.0.0-beta.61",
-    "@vuepress/core": "2.0.0-beta.61",
-    "@vuepress/theme-default": "2.0.0-beta.61",
-    "@vuepress/utils": "2.0.0-beta.61",
+    "@vuepress/client": "2.0.0-beta.63",
+    "@vuepress/core": "2.0.0-beta.63",
+    "@vuepress/theme-default": "2.0.0-beta.63",
+    "@vuepress/utils": "2.0.0-beta.63",
     "vue": "^3.2.47",
     "vuepress": "2.0.0-beta.63",
-    "vuepress-plugin-comment2": "^2.0.0-beta.201",
-    "vuepress-plugin-copy-code2": "^2.0.0-beta.201",
-    "vuepress-plugin-copyright2": "^2.0.0-beta.201",
-    "vuepress-plugin-seo2": "^2.0.0-beta.201",
-    "vuepress-plugin-sitemap2": "^2.0.0-beta.201"
+    "vuepress-plugin-comment2": "^2.0.0-beta.226",
+    "vuepress-plugin-copy-code2": "^2.0.0-beta.226",
+    "vuepress-plugin-copyright2": "^2.0.0-beta.226",
+    "vuepress-plugin-seo2": "^2.0.0-beta.226",
+    "vuepress-plugin-sitemap2": "^2.0.0-beta.226"
   }
 }
