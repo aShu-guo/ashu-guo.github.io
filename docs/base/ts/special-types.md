@@ -48,3 +48,61 @@ never很少使用，尤其是单独使用，它的主要用途是高级泛型
 ## undefined && null
 
 undefined 与 null对应js中的 undefined 和 null
+
+ts有更强大的系统处理null和undefined类型的值
+
+### 可选链
+
+optional chain 是ES7的内容，而且ts支持。是一种访问对象中`可选的属性`的兼容语法
+
+```ts
+interface Student {
+    name: string,
+    age: number,
+    sex?: {
+        male: boolean,
+        female: boolean
+    }
+}
+
+const introduce = (student: Student) => {
+    console.log(`name: ${student.name}, age: ${student.age}, sex: ${student.sex?.male}`)
+}
+```
+
+### 空值合并
+
+也是ES7的内容，而且ts支持。适用于访问可能为`null`或者`undefined`的属性，语法为：`??`
+
+```ts
+function printMileage(mileage: number | null | undefined) {
+    console.log(`Mileage: ${mileage ?? 'Not Available'}`);
+}
+
+printMileage(null); // Prints 'Mileage: Not Available'
+printMileage(0); // Prints 'Mileage: 0'
+```
+
+注意与`&&`的区别：
+
+- A && B: 当A为`false`、`0`、`''`、`null`、`undefined`时，才可以访问B
+- A ?? B: 当A为`null`、`undefined`时，才可以访问B
+
+### 空值断言
+
+ts的推断系统并不完美，可能推断的值并不准确。一种简单的方式是类型转换，但是也可以使用`!`，告诉ts这个变量一定不会是`null`
+或者`undefined`
+
+```ts
+function getValue(): string | undefined {
+    return 'hello';
+}
+
+let value = getValue();
+console.log('value length: ' + value!.length);
+```
+
+注意：这与类型转换一样，并不安全
+
+
+

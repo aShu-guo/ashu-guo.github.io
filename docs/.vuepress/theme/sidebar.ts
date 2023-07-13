@@ -1,6 +1,25 @@
 import {SidebarConfig} from "vuepress";
 
 const sidebar: false | "auto" | SidebarConfig = {
+    '/base/ts/': [
+        {
+            text: 'TypeScript教程',
+            children: [
+                '/base/ts/primitive-types.md',
+                '/base/ts/special-types.md',
+                '/base/ts/casting.md',
+                '/base/ts/object-types.md',
+                '/base/ts/arrays.md',
+                '/base/ts/tuples.md',
+                '/base/ts/classes.md',
+                '/base/ts/enums.md',
+                '/base/ts/functions.md',
+                '/base/ts/alias&interface.md',
+                '/base/ts/union-types.md',
+                '/base/ts/utility-types.md',
+            ]
+        }
+    ],
     '/base/git/': [
         {
             text: 'git操作',
@@ -43,8 +62,8 @@ const sidebar: false | "auto" | SidebarConfig = {
                 '/study-course/computer-organization/cache.md',
                 '/study-course/computer-organization/io.md',
                 {
-                    text:'拓展',
-                    children:[
+                    text: '拓展',
+                    children: [
                         '/study-course/computer-organization/why-1byte-8bit.md',
                     ]
                 }
