@@ -16,6 +16,7 @@ const sidebar: false | "auto" | SidebarConfig = {
                 '/base/ts/functions.md',
                 '/base/ts/alias&interface.md',
                 '/base/ts/union-types.md',
+                '/base/ts/generics.md',
                 '/base/ts/utility-types.md',
             ]
         }

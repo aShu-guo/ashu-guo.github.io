@@ -14,7 +14,7 @@ const getName = (): string => {
 
 ### void类型
 
-如果函数没有返回值，则返回值类型为`void`
+如果函数没有返回值或者返回`undefined`，则返回值类型为`void`
 
 ```ts
 const sayHello = (): void => {

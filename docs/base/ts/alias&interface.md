@@ -12,7 +12,7 @@ const snCode: SnCode = '123'
 
 ## interface
 
-`interface`与类型别名类似，但是它只能定义`object`类型
+`interface`与类型别名类似，但是它只能定义`object`类型，显式地描述对象的内部数据的类型
 
 ```ts
 interface Student {
@@ -20,6 +20,8 @@ interface Student {
     name: string
 }
 ```
+
+相对于type alias，更建议使用interface
 
 ### extends
 
