@@ -15,14 +15,30 @@ const navbar: false | NavbarConfig = [
         ]
     },
     {
-        text: 'Vue生态',
-        link: '/vue-ecology/',
+        text: '框架',
+        link: '/framework/',
         children: [
-            {text: '核心库RFCs翻译', link: '/vue-ecology/rfcs/'},
-            {text: 'Vue3 源码解析', link: '/vue-ecology/debugger/'},
-            {text: 'vuepress博客搭建', link: '/vue-ecology/vuepress/'},
-            {text: 'Vue3迁移升级日志', link: '/vue-ecology/migrate/'},
-            {text: '疑难问题', link: '/vue-ecology/problems/'},
+            {
+                text: 'Vue生态',
+                link: '/framework/vue-ecology/',
+                children: [
+                    {text: '核心库RFCs翻译', link: '/framework/vue-ecology/rfcs/'},
+                    {text: 'Vue2.x', link: '/framework/vue-ecology/2.x'},
+                    {text: 'Vue3.x', link: '/framework/vue-ecology/3.x'},
+                    {text: 'vuepress博客搭建', link: '/framework/vue-ecology/vuepress/'},
+                    {text: 'Vue3迁移日志', link: '/framework/vue-ecology/migrate/'},
+                    {text: '疑难问题', link: '/framework/vue-ecology/problems/'},
+                ]
+
+            },
+            {
+                text: 'React生态',
+                link: '/framework/react-ecology/',
+                children: [
+                    {text: '入门教程', link: '/framework/react-ecology/rfcs/'},
+                ]
+
+            }
         ]
     },
     {

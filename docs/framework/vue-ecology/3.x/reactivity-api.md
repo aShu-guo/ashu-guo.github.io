@@ -1,4 +1,4 @@
-> vue3 指南 next
+# 响应式基础
 
 1. 响应式基础
 
@@ -75,5 +75,5 @@ computed:追踪函数体中的依赖，可以自定义getter和setter
 > Q&A
 
 - reactive对象解包后失效的原因
-  - 解包后是局部变量，无法触发reactive对象中属性的get和set方法
+    - 解包后是局部变量，无法触发reactive对象中属性的get和set方法
 

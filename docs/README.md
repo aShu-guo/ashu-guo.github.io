@@ -10,7 +10,7 @@ tagline: 技术思考、技术方案、标准的阅读和翻译、Vue RFC阅读
 actions:
 
 - text: 开始阅读
-  link: /vue-ecology/rfcs/README.md
+  link: /framework/vue-ecology/rfcs/README.md
   type: primary
 
 footer: MIT Licensed | Copyright © 2018-present aShu_guo

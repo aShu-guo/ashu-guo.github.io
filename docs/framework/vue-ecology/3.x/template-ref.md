@@ -1,13 +1,14 @@
-> 模板引用 ref 同vue2中的$refs
+# 模板引用
 
-1. 使用setup语法糖的示例
+3.x的模板引用语法与2.x版本不同，在2.x版本只需要在需要引用的组件上添加`ref`props即可调用方法和设置属性，但是在3.x中，需要使用特定的语法。
 
-`使用了 <script setup> 的组件是默认私有的：一个父组件无法访问到一个使用了 <script setup> 的子组件中的任何东西，除非子组件在其中通过 defineExpose 宏显式暴露`
+## 使用setup
+
+一个父组件无法访问到子组件中的任何东西，除非子组件在其中通过 `defineExpose` 显式暴露
 
 ```vue
-
+<!-- Search.vue -->
 <template>
-  <!-- Search Component  -->
   <div class="search-box"></div>
 </template>
 <script lang="ts" setup>
@@ -37,18 +38,16 @@ const searchRef = ref<InstanceType<typeof Search> | null>(null);
 </script>
 ```
 
-2. 不使用setup的示例
+## 不使用setup
 
 需要保证在子组件的setup函数中返回 暴露出的属性
 
 ```vue
-
+<!-- Search.vue  -->
 <template>
-  <!-- Search Component  -->
   <div class="search-box"></div>
 </template>
 <script lang="ts">
-import {defineExpose} from 'vue'
 
 export default {
   setup() {
