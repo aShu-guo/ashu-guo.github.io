@@ -6,6 +6,8 @@
 
 ts对类型为`any`的变量不会做类型检查、智能提示等帮助，虽然有上述缺点，但是在处理过去设计漏洞时很有帮助。
 
+如果没有显式设置类型，而且ts没有推断出类型，那么变量的类型会被设置为`any`
+
 ```ts
 let a: any = true
 a = 'xiaoming' // 如果不显式指定变量a为any类型，那么ts会自动推断变量a为boolean类型，再次赋值为string类型的值会报错
@@ -37,7 +39,9 @@ if (typeof a === 'object' && a !== null) {
 
 ## never
 
-never类型的变量，只要赋值给它便会抛出异常
+never类型的变量，只要赋值给它便会抛出异常。
+
+当类型缩小之后没有其他类型可能时，ts会将自动将类型推断为`never`
 
 ```ts
 let name: never = '123' //Error: Type 'string' is not assignable to type 'never'

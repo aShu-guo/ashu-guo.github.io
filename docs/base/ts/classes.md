@@ -59,7 +59,7 @@ class Student {
 }
 ```
 
-## 继承
+## 扩展
 
 ### implements
 
