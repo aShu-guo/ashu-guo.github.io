@@ -25,7 +25,7 @@ const name: string = 'xiaoming'
 
 ### 隐式分配
 
-ts根据变量的值猜测变量的类型，也称为`infer`
+ts根据变量的值`猜测`变量的类型，也称为`infer`
 
 ```ts
 const name = 'xiaoming'

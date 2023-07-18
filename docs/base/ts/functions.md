@@ -22,6 +22,79 @@ const sayHello = (): void => {
 }
 ```
 
+## 类型声明
+
+语法为：(参数名: 参数类型) => 返回值类型
+
+```ts
+// fn是一个要求参数类型为string，返回值类型为boolean的函数
+const doSomething = (fn: (arg: string) => boolean): void => {
+    fn('hello world')
+}
+```
+
+### 调用签名
+
+但是在js中会存在包含一些属性的函数，即将属性挂到声明的函数类型的变量上
+
+```js
+const fn = function (name: string) {
+    console.log('hello ' + name)
+}
+fn.desc = '我是一个函数'
+```
+
+在ts中可以如下声明来解决上述问题：
+
+```ts
+type fn = {
+    desc: string,
+    (name: string): void
+}
+```
+
+需要注意的是这与不含属性的函数类型有些许不同，参数类型与返回值类型之间一个是`:`
+另一个是`=>`：`(name: string): void` `(arg: string) => boolean`
+
+### 构造签名
+
+在js中可以实例化函数，对应的在ts中可以声明如下：
+
+```ts
+type Fn = {
+    new(s: string): SomeObject;
+};
+
+function fn(ctor: Fn) {
+    return new ctor("hello");
+}
+```
+
+:::tip
+可以将两者组合使用，日期：Date便是一个例子，既可以实例化，又可以直接调用。
+:::
+
+## 泛型
+
+为了使函数更加通用，可以传入一个或多个泛型（类型变量），在声明参数类型和返回值类型时可以使用泛型来声明
+
+```ts
+// 
+function map<Input, Output>(data: Input[], callback: (item: Input, index: number) => Output): Output[] {
+    return data.map(callback)
+}
+```
+
+:::warning
+如果返回值类型和参数类型分配了同一个泛型类型，则返回值必须与入参的值的类型必须相同，而不能是其他泛型的子类。
+:::
+
+在定义函数的泛型时，根据官方推荐的规则总结出以下判断：
+
+1. 需要声明泛型时，尽量使用它本身，而不是通过extends约束它
+2. 尽可能使用少量的类型参数
+3. 不要为回调函数声明可选参数，即使是可选的
+
 ## 参数类型
 
 为函数的参数列表分配类型，语法类似声明对象属性。如果没有显式声明，ts会默认为`any`
@@ -83,6 +156,9 @@ const introduce: Introduce = (name) => {
     return name
 }
 ```
+
+## 重载
+
 
 
 
