@@ -22,6 +22,42 @@ const sayHello = (): void => {
 }
 ```
 
+#### 通过type alias声明的函数
+
+此时`void`表示会忽略返回值
+
+```ts
+type voidFunc = () => void;
+
+
+const f1: voidFunc = () => {
+    return true;
+};
+
+const f2: voidFunc = () => true;
+
+const f3: voidFunc = function () {
+    return true;
+};
+```
+
+这是为了兼容没有函数体的回调`['1', '2', '3'].forEach( (item) => parseFloat(item))`
+
+`forEach`的返回值类型为void，但是parseFloat的返回值类型是`number`，但是这在ts中并不报错。
+
+#### 字面函数声明
+
+此时不能有返回值或者返回`undefined`
+
+```ts
+const f2 = function (): void {
+}
+
+const f3 = function (): void {
+    return undefined
+}
+```
+
 ## 类型声明
 
 语法为：(参数名: 参数类型) => 返回值类型
@@ -159,7 +195,27 @@ const introduce: Introduce = (name) => {
 
 ## 重载
 
+函数名相同但是参数列表的个数、类型、顺序不同，返回值不同的称为函数的重载
 
+```ts
+function makeDate(timestamp: number): Date;
+function makeDate(m: number, d: number, y: number): Date;
+function makeDate(mOrTimestamp: number, d?: number, y?: number): Date {
+    if (d !== undefined && y !== undefined) {
+        return new Date(y, mOrTimestamp, d);
+    } else {
+        return new Date(mOrTimestamp);
+    }
+}
+```
+
+在声明了函数的不同签名时，由于只能有一个实现，所以实现函数时需要兼容不同的版本。
+
+在上面的函数实现中，`d`和`y`为可选参数，在添加函数体时对未传`d`和`y`的情况区分了处理。
+
+:::tip
+能使用联合类型时，尽量不要使用函数的重载
+:::
 
 
 
