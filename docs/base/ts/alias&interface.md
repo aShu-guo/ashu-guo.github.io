@@ -53,6 +53,40 @@ interface CollegeStudent extends Student {
 
 ```
 
+## 从类型创建类型
+
+### 属性名（针对对象）
+
+通过指定的属性名查找出对应的属性值的类型
+
+```ts
+type Student = { name: string, age: number, sex: string }
+type MyString = Student['name']
+```
+
+![img.png](/imgs/typescript/type-to-type-1.png)
+
+### 索引（针对数组）
+
+切记：在ts中，数组是包含相同类型的一组数据。
+
+```ts
+const arr = [
+    {name: 'xiaoming', age: 27, sex: '男'},
+    {name: 'xiaohuang', age: 28, sex: '女'}
+]
+type Student = typeof arr[number]
+```
+
+### `keyof`关键字
+
+```ts
+type Student = { name: string, age: number, sex: string }
+type MyString = Student[keyof Student]
+```
+
+![img.png](/imgs/typescript/type-to-type-2.png)
+
 ## 区别
 
 type alias 拥有interface的所有特性，但是type alias无法重新打开添加新的属性（指`interface`自动合并相同作用域下的同名声明）

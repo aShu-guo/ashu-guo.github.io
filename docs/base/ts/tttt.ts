@@ -1,7 +1,14 @@
-type Callback=(arg:any,index:number)=>void
-
-const callback:Callback=(arg)=>{
-    console.log(arg)
+function sealed(constructor: Function) {
+    Object.seal(constructor);
+    Object.seal(constructor.prototype);
 }
 
-callback(1,2)
+@sealed
+class BugReport {
+    type = "report";
+    title: string;
+
+    constructor(t: string) {
+        this.title = t;
+    }
+}

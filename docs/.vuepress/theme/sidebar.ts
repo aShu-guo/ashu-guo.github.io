@@ -20,6 +20,12 @@ const sidebar: false | "auto" | SidebarConfig = {
                 '/base/ts/utility-types.md',
             ]
         },
+        {
+            text: 'Q&A',
+            children: [
+                '/base/ts/questions/isEqual-work.md',
+            ]
+        },
 
     ],
     '/base/git/': [
