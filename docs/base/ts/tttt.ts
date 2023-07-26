@@ -1,14 +1,7 @@
-function sealed(constructor: Function) {
-    Object.seal(constructor);
-    Object.seal(constructor.prototype);
+type Student = {
+    name: string
 }
 
-@sealed
-class BugReport {
-    type = "report";
-    title: string;
-
-    constructor(t: string) {
-        this.title = t;
-    }
-}
+type CollegeStudent = {
+    college: string
+} & Student

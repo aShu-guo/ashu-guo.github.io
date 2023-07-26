@@ -1,8 +1,10 @@
 # 类型别名和interface
 
-## type aliases
+## 类型声明
 
-类型别名允许使用自定义名称定义基本类型（`string`）或者复杂类型（`objects`）
+### type aliases
+
+类型别名允许使用自定义名称定义基本类型（例如：`string`）或者复杂类型（例如：`objects`）
 
 ```ts
 type SnCode = string
@@ -10,7 +12,7 @@ type SnCode = string
 const snCode: SnCode = '123'
 ```
 
-## interface
+### interface
 
 `interface`与类型别名类似，但是它只能定义`object`类型，显式地描述对象的内部数据的类型
 
@@ -42,9 +44,25 @@ const shape: Shape = {
 
 相对于type alias，更建议使用interface
 
-### extends
+## extends
 
-`interface`通过关键字`extends`扩展属性，相当于添加了其他interface的属性，并且它可以扩展任意自定义类型
+### type alias
+
+`type alias`通过`&`扩展属性
+
+```ts
+type Student = {
+    name: string
+}
+
+type CollegeStudent = {
+    college: string
+} & Student
+```
+
+### interface
+
+`interface`通过关键字`extends`扩展属性，相当于添加了其他interface的属性，并且它可以扩展任意自定义类型。
 
 ```ts
 interface CollegeStudent extends Student {
@@ -86,6 +104,8 @@ type MyString = Student[keyof Student]
 ```
 
 ![img.png](/imgs/typescript/type-to-type-2.png)
+
+### `as`关键字
 
 ## 区别
 

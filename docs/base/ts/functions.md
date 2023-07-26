@@ -2,6 +2,70 @@
 
 在ts中声明函数时与js不同，需要显式声明参数类型和返回值类型
 
+## 类型声明
+
+语法为：(参数名: 参数类型) => 返回值类型
+
+```ts
+// fn是一个要求参数类型为string，返回值类型为boolean的函数
+const doSomething = (fn: (arg: string) => boolean): void => {
+    fn('hello world')
+}
+```
+
+### 通用声明
+
+更加通用的函数类型声明
+
+```ts
+type Fun = (...args: any[]) => any
+
+interface Fun2 {
+    (...args: any[]): any
+}
+```
+
+### 带属性的函数声明
+
+但是在js中会存在包含一些属性的函数，即将属性挂到声明的函数类型的变量上
+
+```js
+const fn = function (name: string) {
+    console.log('hello ' + name)
+}
+fn.desc = '我是一个函数'
+```
+
+在ts中可以如下声明来解决上述问题：
+
+```ts
+type fn = {
+    desc: string,
+    (name: string): void
+}
+```
+
+需要注意的是这与不含属性的函数类型有些许不同，参数类型与返回值类型之间一个是`:`
+另一个是`=>`：`(name: string): void` `(arg: string) => boolean`
+
+### 构造函数声明
+
+在js中可以实例化函数，对应的在ts中可以声明如下：
+
+```ts
+type Fn = {
+    new(s: string): SomeObject;
+};
+
+function fn(ctor: Fn) {
+    return new ctor("hello");
+}
+```
+
+:::tip
+可以将两者组合使用，日期：Date便是一个例子，既可以实例化，又可以直接调用。
+:::
+
 ## 返回值类型
 
 可以显示的声明返回值类型，如果没有声明，ts则会尝试自行根据返回值推断类型。
@@ -11,6 +75,8 @@ const getName = (): string => {
     return 'xiaoming'
 }
 ```
+
+只要是ts允许的类型都可以作为返回值类型，只特别介绍`void`类型
 
 ### void类型
 
@@ -57,58 +123,6 @@ const f3 = function (): void {
     return undefined
 }
 ```
-
-## 类型声明
-
-语法为：(参数名: 参数类型) => 返回值类型
-
-```ts
-// fn是一个要求参数类型为string，返回值类型为boolean的函数
-const doSomething = (fn: (arg: string) => boolean): void => {
-    fn('hello world')
-}
-```
-
-### 调用签名
-
-但是在js中会存在包含一些属性的函数，即将属性挂到声明的函数类型的变量上
-
-```js
-const fn = function (name: string) {
-    console.log('hello ' + name)
-}
-fn.desc = '我是一个函数'
-```
-
-在ts中可以如下声明来解决上述问题：
-
-```ts
-type fn = {
-    desc: string,
-    (name: string): void
-}
-```
-
-需要注意的是这与不含属性的函数类型有些许不同，参数类型与返回值类型之间一个是`:`
-另一个是`=>`：`(name: string): void` `(arg: string) => boolean`
-
-### 构造签名
-
-在js中可以实例化函数，对应的在ts中可以声明如下：
-
-```ts
-type Fn = {
-    new(s: string): SomeObject;
-};
-
-function fn(ctor: Fn) {
-    return new ctor("hello");
-}
-```
-
-:::tip
-可以将两者组合使用，日期：Date便是一个例子，既可以实例化，又可以直接调用。
-:::
 
 ## 泛型
 
