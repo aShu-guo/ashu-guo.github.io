@@ -19,7 +19,7 @@ a.toString()
 在未使用ts的vue中声明props时：`id: { type: [String, Number], required: true }`，注意不要与ts联合类型语法混淆了。
 :::
 
-## 类型缩小
+## 类型收敛
 
 如果未声明meta类型，而直接声明`interface`来等价于组合类型
 

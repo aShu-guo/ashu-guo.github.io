@@ -41,7 +41,9 @@ if (typeof a === 'object' && a !== null) {
 
 never类型的变量，只要赋值给它便会抛出异常。
 
-当类型缩小之后没有其他类型可能时，ts会将自动将类型推断为`never`
+当`类型收敛`之后没有其他类型可能时，ts会将自动将类型推断为`never`
+
+[是否需要在类型收敛函数中添加详尽性判断？](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking)
 
 ```ts
 let name: never = '123' //Error: Type 'string' is not assignable to type 'never'

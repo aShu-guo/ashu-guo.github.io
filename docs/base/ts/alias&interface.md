@@ -101,11 +101,18 @@ type Student = typeof arr[number]
 ```ts
 type Student = { name: string, age: number, sex: string }
 type MyString = Student[keyof Student]
+
 ```
 
 ![img.png](/imgs/typescript/type-to-type-2.png)
 
 ### `as`关键字
+
+在v4.1及以上版本，提供了`as`关键字可以对映射的key再次映射，
+
+```ts
+
+```
 
 ## 区别
 

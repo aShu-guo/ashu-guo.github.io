@@ -231,5 +231,33 @@ function makeDate(mOrTimestamp: number, d?: number, y?: number): Date {
 能使用联合类型时，尽量不要使用函数的重载
 :::
 
+## 类型收敛
+
+将宽泛的类型收敛为一个更为精确的类型
+
+### type predicate
+
+语法为：参数名 `is` 类型
+
+当使用类型断言函数作为返回值类型时，返回值类型必须为`boolean`
+
+```ts
+function isValidRating(
+  rating: any
+): rating is Rating {
+  if (!rating || typeof rating !== "number") {
+    return false;
+  }
+  return (
+    rating === 1 ||
+    rating === 2 ||
+    rating === 3 ||
+    rating === 4 ||
+    rating === 5
+  );
+}
+```
+
+
 
 

@@ -1,5 +1,7 @@
 # 数组
 
+## 类型声明
+
 在ts中，声明数组有两种特殊的语法
 
 1. new声明
@@ -27,6 +29,20 @@ list.push()
 ```
 
 ![img.png](/imgs/typescript/arrays-auto-complete.png)
+
+### `readonly` 与 `const`
+
+在js中`const`声明变量时表示变量不可变，但是对应引用数据类型而言，这并不是有效的。在ts中解决了上述问题
+
+```ts
+const arr: readonly number[] = []
+arr.push(1)
+
+// ts内置的工具类：ReadonlyArray<number>
+const arr2: ReadonlyArray<number> = []
+```
+
+![img.png](/imgs/typescript/arr-readonly.png)
 
 ## infer type
 
