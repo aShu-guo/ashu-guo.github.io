@@ -2,6 +2,7 @@
 
 一个指定预定义长度和每个索引对应值的类型的数组
 
+## 类型声明
 ```ts
 // 正确的语法
 const tuples: [string, number] = ['1', 2]
@@ -12,7 +13,7 @@ const tuples2: [string, number] = ['1', 2, 4]
 //     Source has 3 element(s) but target allows only 2.ts(2322)
 ```
 
-更加通用的元组声明
+### 更加通用的元组声明
 
 ```ts
 type Tuples = readonly any[]
@@ -38,9 +39,22 @@ const [name, setName] = userState('')
 
 :::
 
-## 具名元组
+## 可选
 
-为元组中的每个index的值赋予name
+通过`?`标记元组中的某个元素是可选的
+
+```ts
+type MyTuple = [string, number, boolean?]
+const a: MyTuple = ['1', 2]
+```
+
+## 解构
+
+在约定式的API中用处更大
+
+### 具名解构
+
+为元组中的每个index的值赋予name，语法等价于js中解构数组
 
 ```ts
 const graph: [x: number, y: number] = [55.2, 41.3];
@@ -50,15 +64,6 @@ const graph: [x: number, y: number] = [55.2, 41.3];
 
 ```ts
 const coord: [longitude: number, latitude: number] = [120.3, 30.22]
-```
-
-## 解构元组
-
-语法等同于解构数组
-
-```ts
-const coord: [number, number] = [120.3, 30.22]
-const [longitude, latitude] = coord
 ```
 
 ## 数组转为元组
@@ -78,3 +83,23 @@ const actions = ["CREATE", "READ", "UPDATE", "DELETE"] as const
 ```
 
 ![img.png](/imgs/typescript/array-to-tuple-2.png)
+
+## 应用
+
+### 函数参数列表
+
+声明一个包含不固定参数的函数，函数名为`readButtonInput`，其中前2个参数的类型分别为`string`，`number`，剩余参数均为`boolean`
+
+```ts
+function readButtonInput(name: string, version: number, ...input: boolean[]) {
+  // ...
+}
+```
+
+更加抽象的声明，在库开发中常用
+```ts
+function readButtonInput(...args: [string, number, boolean[]]) {
+    // ...
+    const [name, version, input] = args
+}
+```

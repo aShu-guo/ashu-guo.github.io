@@ -48,7 +48,7 @@ const shape: Shape = {
 
 ### type alias
 
-`type alias`通过`&`扩展属性
+`type alias`通过`&`扩展属性，又称为交叉类型（Intersection Types）。
 
 ```ts
 type Student = {
