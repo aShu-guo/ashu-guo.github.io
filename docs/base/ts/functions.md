@@ -43,6 +43,11 @@ type fn = {
     desc: string,
     (name: string): void
 }
+
+interface fn{
+    desc: string,
+    (name: string): void
+}
 ```
 
 需要注意的是这与不含属性的函数类型有些许不同，参数类型与返回值类型之间一个是`:`

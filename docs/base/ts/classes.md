@@ -28,9 +28,59 @@ student.name = 'xiaoming'
 | protected | 当前class和子类可见 | 当前package和子类可见 |
 | default   | 无            | 当前package可见    |
 
+### private keyword vs private field
+
+`private`关键字与`#field`私有字段，后者仍处于提案阶段
+
+#### private keyword
+
+`private`关键字仅作用于编译时，而且可以绕过私有检查
+
+```ts
+class Student {
+    private name: string
+
+    constructor(name) {
+        this.name = name
+    }
+}
+
+const student = new Student()
+(student as any).name
+```
+
+编译成的js代码仅是作为一个普通属性：
+
+```js
+"use strict";
+
+class Student {
+    constructor(name) {
+        this.name = name;
+    }
+}
+```
+
+#### private field
+
+- 可以命名于非`#`字段`同名`的私有属性
+- 无法被`JSON.stringify`序列化
+- 无法`Object.getOwnPropertyNames`或者类似的方法访问
+
+```ts
+class Person {
+    age: number
+    #age: number
+}
+```
+
+需要运行时检查私有属性时可以使用后者，但是大多数情况下都是默认使用前者
+
 ## 构造参数
 
 ts提供了一种更便利的添加可见性修饰符的方式：直接标注在构造函数的参数上
+
+注意⚠️：这是ts独有的，在js中非法
 
 ```ts
 class Student {
@@ -141,7 +191,8 @@ class Square extends Rectangle {
 
 ### abstract
 
-`abstract class`既可以包含具体的成员实现，又可以包含未实现的成员。介于`interface`和`class`之间。
+`abstract class`既可以包含具体的成员实现，又可以包含未实现的成员。介于`interface`和`class`之间，但是子类只能通过`extends`
+继承，并且要实现未实现的方法。
 
 - 对于未实现的成员函数需要添加`abstract`
 - 无法被实例化，因为它还会包含未实现的成员函数

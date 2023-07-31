@@ -68,7 +68,7 @@ const coord: [longitude: number, latitude: number] = [120.3, 30.22]
 
 ## 数组转为元组
 
-使用`as const`可以将数组类型转化为元组类型
+使用`as const`可以将数组类型转化为元组类型，它更加通用的用法是转换为文字类型
 
 ```ts
 // 此时类型为：string[]
