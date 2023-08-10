@@ -426,6 +426,14 @@ const sidebar: false | "auto" | SidebarConfig = {
             text: '解构',
             link: '/base/es6-above/解构.md'
         }
+    ],
+    '/node-server/nest/':[
+        {
+            text: 'NestJs实践',
+            children: [
+                '/node-server/nest/typeorm-uuid.md'
+            ]
+        }
     ]
 }
 

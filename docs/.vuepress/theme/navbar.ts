@@ -55,6 +55,13 @@ const navbar: false | NavbarConfig = [
         ]
     },
     {
+        text: 'node',
+        link: '/node-server/',
+        children: [
+            {text: 'nestjs', link: '/node-server/nest/'},
+        ]
+    },
+    {
         text: '计算机课程学习记录',
         link: '/study-course/',
         children: [
