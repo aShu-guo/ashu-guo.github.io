@@ -55,10 +55,11 @@ const navbar: false | NavbarConfig = [
         ]
     },
     {
-        text: 'node',
-        link: '/node-server/',
+        text: '服务端',
+        link: '/server/',
         children: [
-            {text: 'nestjs', link: '/node-server/nest/'},
+            {text: 'nestjs', link: '/server/nest/'},
+            {text: 'Q&A', link: '/server/common/'},
         ]
     },
     {

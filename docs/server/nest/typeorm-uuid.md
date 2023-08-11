@@ -1,4 +1,4 @@
-# typeorm UUID作为PK的实践
+# typeorm UUID作为PK
 
 ## 原因
 
