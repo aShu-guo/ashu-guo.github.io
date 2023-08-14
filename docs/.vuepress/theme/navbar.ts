@@ -23,8 +23,8 @@ const navbar: false | NavbarConfig = [
                 link: '/framework/vue-ecology/',
                 children: [
                     {text: '核心库RFCs翻译', link: '/framework/vue-ecology/rfcs/'},
-                    {text: 'Vue2.x', link: '/framework/vue-ecology/2.x'},
-                    {text: 'Vue3.x', link: '/framework/vue-ecology/3.x'},
+                    {text: 'Vue2.x', link: '/framework/vue-ecology/2.x/'},
+                    {text: 'Vue3.x', link: '/framework/vue-ecology/3.x/'},
                     {text: 'vuepress博客搭建', link: '/framework/vue-ecology/vuepress/'},
                     {text: 'Vue3迁移日志', link: '/framework/vue-ecology/migrate/'},
                     {text: '疑难问题', link: '/framework/vue-ecology/problems/'},

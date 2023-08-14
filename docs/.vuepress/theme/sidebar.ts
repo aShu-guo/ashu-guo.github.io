@@ -427,7 +427,7 @@ const sidebar: false | "auto" | SidebarConfig = {
             link: '/base/es6-above/解构.md'
         }
     ],
-    '/server/nest/':[
+    '/server/nest/': [
         {
             text: 'NestJs实践',
             children: [
@@ -435,11 +435,20 @@ const sidebar: false | "auto" | SidebarConfig = {
             ]
         }
     ],
-    '/server/common/':[
+    '/server/common/': [
         {
             text: 'Q&A',
             children: [
                 '/server/common/api-version.md'
+            ]
+        }
+    ],
+    '/framework/vue-ecology/2.x/': [
+        {
+            text: '2.x版本',
+            children: [
+                '/framework/vue-ecology/2.x/api.md',
+                '/framework/vue-ecology/2.x/reactive-module.md'
             ]
         }
     ]
