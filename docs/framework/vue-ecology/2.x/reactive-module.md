@@ -615,6 +615,8 @@ Object.defineProperty(arr, 3, {
 
 ```
 
+![img.png](/imgs/vue-debugger/reactive-defineproperty.png)
+
 ### es6提供的Proxy
 
 定义整体的行为
@@ -631,3 +633,6 @@ let proxyObj = new Proxy(obj, {
     }
 })
 ```
+
+![img.png](/imgs/vue-debugger/reactive-proxy.png)
+
