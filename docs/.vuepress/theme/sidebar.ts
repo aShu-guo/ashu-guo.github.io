@@ -431,7 +431,8 @@ const sidebar: false | "auto" | SidebarConfig = {
         {
             text: 'NestJs实践',
             children: [
-                '/server/nest/typeorm-uuid.md'
+                '/server/nest/typeorm-uuid.md',
+                '/server/nest/auth.md'
             ]
         }
     ],
