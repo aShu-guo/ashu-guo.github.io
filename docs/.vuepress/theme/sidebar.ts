@@ -439,7 +439,10 @@ const sidebar: false | "auto" | SidebarConfig = {
         {
             text: 'Q&A',
             children: [
-                '/server/common/api-version.md'
+                '/server/common/api-version.md',
+                '/server/common/enctypt.md',
+                '/server/common/response-structure.md',
+                '/server/common/serialization.md',
             ]
         }
     ],
