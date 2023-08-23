@@ -438,7 +438,7 @@ const sidebar: false | "auto" | SidebarConfig = {
     ],
     '/server/common/': [
         {
-            text: 'Q&A',
+            text: '通用模块',
             children: [
                 '/server/common/api-version.md',
                 '/server/common/enctypt.md',

@@ -59,7 +59,7 @@ const navbar: false | NavbarConfig = [
         link: '/server/',
         children: [
             {text: 'nestjs', link: '/server/nest/'},
-            {text: 'Q&A', link: '/server/common/'},
+            {text: '通用模块', link: '/server/common/'},
         ]
     },
     {
