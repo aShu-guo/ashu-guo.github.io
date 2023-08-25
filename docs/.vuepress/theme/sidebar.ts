@@ -455,6 +455,15 @@ const sidebar: false | "auto" | SidebarConfig = {
                 '/framework/vue-ecology/2.x/reactive-module.md'
             ]
         }
+    ],
+    '/hybrid-app/desktop/electron/':[
+        {
+            text: '桌面应用',
+            children: [
+                '/hybrid-app/desktop/electron/README.md',
+                '/hybrid-app/desktop/electron/a-record-packaging.md',
+            ]
+        }
     ]
 }
 

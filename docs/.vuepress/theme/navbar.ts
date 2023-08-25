@@ -45,11 +45,23 @@ const navbar: false | NavbarConfig = [
         text: '混合应用开发',
         link: '/hybrid-app/',
         children: [
-            {text: '小程序', children: ['/hybrid-app/applet/dingding/', '/hybrid-app/applet/wx/']},
+            {
+                text: '小程序',
+                children: [
+                    '/hybrid-app/applet/dingding/',
+                    '/hybrid-app/applet/wx/'
+                ]
+            },
             {
                 text: '跨端解决方案',
                 children: [
                     '/hybrid-app/cross/uniapp/',
+                ]
+            },
+            {
+                text: '桌面应用',
+                children: [
+                    '/hybrid-app/desktop/electron/',
                 ]
             },
         ]
