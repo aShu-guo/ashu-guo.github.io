@@ -1,0 +1,1 @@
+import{_ as t,o as a,c,a as e,d as o}from"./app-a46f6870.js";const r={},d=e("h1",{id:"reactive-module",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#reactive-module","aria-hidden":"true"},"#"),o(" reactive-module")],-1),s=[d];function i(n,_){return a(),c("div",null,s)}const u=t(r,[["render",i],["__file","reactive-module.html.vue"]]);export{u as default};

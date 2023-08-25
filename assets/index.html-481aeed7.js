@@ -1,0 +1,1 @@
+import{_ as s,o as t,c as a,a as e,d as c}from"./app-a46f6870.js";const n={},o=e("h1",{id:"css总结",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#css总结","aria-hidden":"true"},"#"),c(" CSS总结")],-1),r=[o];function d(_,i){return t(),a("div",null,r)}const l=s(n,[["render",d],["__file","index.html.vue"]]);export{l as default};

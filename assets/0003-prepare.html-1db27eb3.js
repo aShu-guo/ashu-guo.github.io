@@ -1,0 +1,1 @@
+import{_ as t,o as a,c as r,a as e,d as c}from"./app-a46f6870.js";const o={},s=e("h1",{id:"准备篇",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#准备篇","aria-hidden":"true"},"#"),c(" 准备篇")],-1),_=e("p",null,"自定义指令参数暂时无合适的举例",-1),n=[s,_];function d(i,l){return a(),r("div",null,n)}const f=t(o,[["render",d],["__file","0003-prepare.html.vue"]]);export{f as default};

@@ -1,0 +1,1 @@
+import{_,o as t,c as o,a as e}from"./app-a46f6870.js";const c={},n=e("blockquote",null,[e("p",null,"事件监听 👂")],-1),s=[n];function l(a,r){return t(),o("div",null,s)}const d=_(c,[["render",l],["__file","事件监听👂.html.vue"]]);export{d as default};

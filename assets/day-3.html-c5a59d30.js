@@ -1,0 +1,1 @@
+import{_ as a,o as t,c,a as e,d}from"./app-a46f6870.js";const o={},r=e("h1",{id:"day-3-完成公共组件部分封装",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#day-3-完成公共组件部分封装","aria-hidden":"true"},"#"),d(" day-3 完成公共组件部分封装")],-1),s=[r];function n(_,i){return t(),c("div",null,s)}const l=a(o,[["render",n],["__file","day-3.html.vue"]]);export{l as default};

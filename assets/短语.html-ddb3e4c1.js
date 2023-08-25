@@ -1,0 +1,1 @@
+import{_ as t,o as a,c,a as e,d as o}from"./app-a46f6870.js";const r={},s=e("h1",{id:"短语",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#短语","aria-hidden":"true"},"#"),o(" 短语")],-1),_=[s];function n(d,i){return a(),c("div",null,_)}const l=t(r,[["render",n],["__file","短语.html.vue"]]);export{l as default};

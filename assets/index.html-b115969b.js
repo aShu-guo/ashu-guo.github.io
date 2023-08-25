@@ -1,0 +1,1 @@
+import{_ as t,o as a,c,a as e,d as n}from"./app-a46f6870.js";const o={},s=e("h1",{id:"英语学习记录",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#英语学习记录","aria-hidden":"true"},"#"),n(" 英语学习记录")],-1),r=e("p",null,"记录遇到的不懂的计算机术语、翻译时遇到的长难句。",-1),_=[s,r];function d(i,l){return a(),c("div",null,_)}const f=t(o,[["render",d],["__file","index.html.vue"]]);export{f as default};

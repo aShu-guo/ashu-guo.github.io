@@ -1,0 +1,1 @@
+import{_ as a,o as t,c,a as e,d as o}from"./app-a46f6870.js";const r={},n=e("h1",{id:"背景渐变色",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#背景渐变色","aria-hidden":"true"},"#"),o(" 背景渐变色")],-1),s=[n];function d(_,i){return t(),c("div",null,s)}const l=a(r,[["render",d],["__file","background.html.vue"]]);export{l as default};
